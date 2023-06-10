@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">WaterMate</string>
-    <string name="title">WaterMate</string>
+    <string name="title">Water Mate</string>
+    <string name="welcome">Welcome!</string>
+    <string name="handshake">Handshake</string>
+    <string name="start">Let\'s start!</string>
+
+    <string-array name="possibilities_list">
+        <item>With this application you will \nbe able to:</item>
+        <item>determine the degree \nof dehydration</item>
+        <item>determine the required amount \nof electrolytes</item>
+        <item>determine the daily physiological \nneed for fluids</item>
+        <item>calculate the required amount \nof fluid in case of dehydration</item>
+    </string-array>
 </resources>
