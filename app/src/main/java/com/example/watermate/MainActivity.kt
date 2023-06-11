@@ -7,6 +7,7 @@ import android.content.res.Resources
 import android.widget.ListView
 import android.widget.ArrayAdapter
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
