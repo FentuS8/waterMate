@@ -18,7 +18,7 @@ class CustomArrayAdapter(context: Context, resource: Int, objects: Array<String>
 
         val textView = view.findViewById<TextView>(android.R.id.text1)
         textView.setTextColor(ContextCompat.getColor(context, R.color.textBlack))
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 19f)
         textView.setLetterSpacing(0.01f)
         textView.setPadding(60, 0, 0, 20)
 
