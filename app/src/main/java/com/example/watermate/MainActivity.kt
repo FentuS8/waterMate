@@ -4,10 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.os.Bundle
-import android.content.res.Resources
 import android.widget.ListView
-import android.widget.ArrayAdapter
 import android.widget.Button
+import com.example.watermate.custom_utils.CustomArrayAdapter
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {

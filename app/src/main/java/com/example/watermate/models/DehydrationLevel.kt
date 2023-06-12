@@ -22,7 +22,7 @@ class DehydrationLevel {
             "Light sleepiness" -> points += 1
             "Drowsy" -> points += 2
         }
-        // 123qwerty
+
         // Checking Mucous
         when (mucous) {
             "Wet" -> points += 0
