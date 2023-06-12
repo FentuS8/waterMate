@@ -1,39 +1,55 @@
 package com.example.watermate.models
 
-class WaterBalance(private val age: Int, private val weight: Double) {
-    fun calculateDailyWaterIntake(): Double {
-        // Формула для вычисления дневной нормы потребления воды
-        val waterIntake = weight * getMultiplierByAge()
+interface IAgeMultiplierProvider {
+    fun getMultiplierByAge(age: Int): Double
+}
 
-        return waterIntake
+interface IWaterIntakeConvertor {
+    fun calculateWaterIntake(weight: Double, multiplier: Double): Double
+}
+
+interface IWaterIntakeInGlassesConvertor {
+    fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int
+}
+
+class WaterBalance(
+    private val age: Int,
+    private val weight: Double,
+    private val ageMultiplierProvider: IAgeMultiplierProvider,
+    private val waterIntakeCalculator: IWaterIntakeConvertor,
+    private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConvertor
+) {
+    fun calculateDailyWaterIntake(): Double {
+        val multiplier = ageMultiplierProvider.getMultiplierByAge(age)
+        return waterIntakeCalculator.calculateWaterIntake(weight, multiplier)
     }
 
     fun calculateDailyWaterIntakeInGlasses(): Int {
         val waterIntake = calculateDailyWaterIntake()
-        val glassVolume = 250 // Предположим, что объем одного стакана равен 250 мл
-        val waterIntakeInGlasses = (waterIntake / glassVolume).toInt()
-
-        return waterIntakeInGlasses
+        val glassVolume = 250
+        return waterIntakeInGlassesCalculator.calculateWaterIntakeInGlasses(waterIntake, glassVolume)
     }
+}
 
-    private fun getMultiplierByAge(): Double {
+class DefaultAgeMultiplierProvider : IAgeMultiplierProvider {
+    override fun getMultiplierByAge(age: Int): Double {
         return when {
-            age < 14 -> 40.0 // Если возраст меньше 14 лет, множитель равен 40
-            age < 30 -> 35.0 // Если возраст меньше 30 лет, множитель равен 35
-            age < 55 -> 30.0 // Если возраст меньше 55 лет, множитель равен 30
-            else -> 25.0 // В остальных случаях множитель равен 25
+            age < 14 -> 40.0
+            age < 30 -> 35.0
+            age < 55 -> 30.0
+            else -> 25.0
         }
     }
 }
 
-//val userAge = 25
-//val userWeight = 70.5
-//
-//val waterBalance = WaterBalance(userAge, userWeight)
-//
-//val dailyWaterIntake = waterBalance.calculateDailyWaterIntake()
-//val dailyWaterIntakeInGlasses = waterBalance.calculateDailyWaterIntakeInGlasses()
-//
-//println("Пользователь должен пить $dailyWaterIntake литров воды в день.")
-//println("Это примерно $dailyWaterIntakeInGlasses стаканов воды в день.")
+class DefaultWaterIntakeConvertor : IWaterIntakeCalculator {
+    override fun calculateWaterIntake(weight: Double, multiplier: Double): Double {
+        return weight * multiplier
+    }
+}
 
+class DefaultWaterIntakeInGlassesConvertor : IWaterIntakeInGlassesCalculator {
+    override fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int {
+        return (waterIntake / glassVolume).toInt()
+    }
+}
