@@ -1,29 +1,37 @@
 package com.example.watermate.models
 
+// Интерфейс для предоставления множителя в зависимости от возраста
 interface IAgeMultiplierProvider {
     fun getMultiplierByAge(age: Int): Double
 }
 
-interface IWaterIntakeConvertor {
+// Интерфейс для расчета потребления воды в зависимости от веса и множителя
+interface IWaterIntakeConverter {
     fun calculateWaterIntake(weight: Double, multiplier: Double): Double
 }
 
-interface IWaterIntakeInGlassesConvertor {
+// Интерфейс для расчета потребления воды в стаканах в зависимости от объема стакана
+interface IWaterIntakeInGlassesConverter {
     fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int
 }
 
-class WaterBalance(
-    private val age: Int,
+// Абстрактный класс для расчета водного баланса
+abstract class WaterBalance(
     private val weight: Double,
     private val ageMultiplierProvider: IAgeMultiplierProvider,
-    private val waterIntakeCalculator: IWaterIntakeConvertor,
-    private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConvertor
+    private val waterIntakeCalculator: IWaterIntakeConverter,
+    private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConverter
 ) {
+    // Абстрактный метод для получения возраста пользователя
+    abstract fun getAge(): Int
+
+    // Метод для расчета суточного потребления воды
     fun calculateDailyWaterIntake(): Double {
-        val multiplier = ageMultiplierProvider.getMultiplierByAge(age)
+        val multiplier = ageMultiplierProvider.getMultiplierByAge(getAge())
         return waterIntakeCalculator.calculateWaterIntake(weight, multiplier)
     }
 
+    // Метод для расчета суточного потребления воды в стаканах
     fun calculateDailyWaterIntakeInGlasses(): Int {
         val waterIntake = calculateDailyWaterIntake()
         val glassVolume = 250
@@ -31,6 +39,22 @@ class WaterBalance(
     }
 }
 
+// Конкретная реализация класса WaterBalance для пользователя с заданным возрастом
+class UserWaterBalance(
+    private val age: Int,
+    weight: Double,
+    ageMultiplierProvider: IAgeMultiplierProvider,
+    waterIntakeCalculator: IWaterIntakeConverter,
+    waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConverter
+) : WaterBalance(weight, ageMultiplierProvider, waterIntakeCalculator, waterIntakeInGlassesCalculator) {
+
+    // Переопределение метода для получения возраста пользователя
+    override fun getAge(): Int {
+        return age
+    }
+}
+
+// Конкретная реализация интерфейса IAgeMultiplierProvider по умолчанию
 class DefaultAgeMultiplierProvider : IAgeMultiplierProvider {
     override fun getMultiplierByAge(age: Int): Double {
         return when {
@@ -42,13 +66,15 @@ class DefaultAgeMultiplierProvider : IAgeMultiplierProvider {
     }
 }
 
-class DefaultWaterIntakeConvertor : IWaterIntakeCalculator {
+// Конкретная реализация интерфейса IWaterIntakeCalculator по умолчанию
+class DefaultWaterIntakeConverter : IWaterIntakeConverter {
     override fun calculateWaterIntake(weight: Double, multiplier: Double): Double {
         return weight * multiplier
     }
 }
 
-class DefaultWaterIntakeInGlassesConvertor : IWaterIntakeInGlassesCalculator {
+// Конкретная реализация интерфейса IWaterIntakeInGlassesCalculator по умолчанию
+class DefaultWaterIntakeInGlassesConvertor : IWaterIntakeInGlassesConverter {
     override fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int {
         return (waterIntake / glassVolume).toInt()
     }

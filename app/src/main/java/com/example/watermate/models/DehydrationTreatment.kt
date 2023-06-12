@@ -1,7 +1,7 @@
 package com.example.watermate.models
 
 interface IDegreeOfDehydrationMultiplier {
-    fun getMultiplier(): Double
+    fun getMultiplier(degreeOfDehydration: Int): Double
 }
 
 interface IWaterIntakeCalculator {
@@ -12,28 +12,8 @@ interface IWaterIntakeInGlassesCalculator {
     fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int
 }
 
-class DehydrationTreatment(
-    private val degreeOfDehydration: Int,
-    private val age: Int,
-    private val weight: Double,
-    private val degreeOfDehydrationMultiplier: IDegreeOfDehydrationMultiplier,
-    private val waterIntakeCalculator: IWaterIntakeCalculator,
-    private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesCalculator
-) {
-    fun calculateWaterIntake(): Double {
-        val multiplier = degreeOfDehydrationMultiplier.getMultiplier()
-        return waterIntakeCalculator.calculateWaterIntake(weight, multiplier)
-    }
-
-    fun calculateWaterIntakeInGlasses(): Int {
-        val waterIntake = calculateWaterIntake()
-        val glassVolume = 250
-        return waterIntakeInGlassesCalculator.calculateWaterIntakeInGlasses(waterIntake, glassVolume)
-    }
-}
-
-class DefaultDegreeOfDehydrationMultiplier(private val degreeOfDehydration: Int) : IDegreeOfDehydrationMultiplier {
-    override fun getMultiplier(): Double {
+class DegreeOfDehydrationMultiplier : IDegreeOfDehydrationMultiplier {
+    override fun getMultiplier(degreeOfDehydration: Int): Double {
         return when (degreeOfDehydration) {
             1 -> 0.05
             2 -> 0.08
@@ -43,14 +23,32 @@ class DefaultDegreeOfDehydrationMultiplier(private val degreeOfDehydration: Int)
     }
 }
 
-class DefaultWaterIntakeCalculator : IWaterIntakeCalculator {
+class WaterIntakeConverter : IWaterIntakeConverter {
     override fun calculateWaterIntake(weight: Double, multiplier: Double): Double {
         return weight * multiplier
     }
 }
 
-class DefaultWaterIntakeInGlassesCalculator : IWaterIntakeInGlassesCalculator {
+class WaterIntakeInGlassesConvertor : IWaterIntakeInGlassesConverter {
     override fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int {
         return (waterIntake / glassVolume).toInt()
     }
 }
+
+class DehydrationTreatment(
+    private val degreeOfDehydrationMultiplier: IDegreeOfDehydrationMultiplier,
+    private val waterIntakeCalculator: IWaterIntakeConverter,
+    private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConverter
+) {
+    fun calculateWaterIntake(weight: Double, degreeOfDehydration: Int): Double {
+        val multiplier = degreeOfDehydrationMultiplier.getMultiplier(degreeOfDehydration)
+        return waterIntakeCalculator.calculateWaterIntake(weight, multiplier)
+    }
+
+    fun calculateWaterIntakeInGlasses(weight: Double, degreeOfDehydration: Int): Int {
+        val waterIntake = calculateWaterIntake(weight, degreeOfDehydration)
+        val glassVolume = 250
+        return waterIntakeInGlassesCalculator.calculateWaterIntakeInGlasses(waterIntake, glassVolume)
+    }
+}
+
