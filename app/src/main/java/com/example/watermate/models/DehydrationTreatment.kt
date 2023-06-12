@@ -2,17 +2,35 @@ package com.example.watermate.models
 
 // Интерфейс для получения множителя в зависимости от степени обезвоживания
 interface IDegreeOfDehydrationMultiplier {
-    fun getMultiplier(degreeOfDehydration: Int): Double // Метод для возвращения множителя от 0.05 до 0.10
+    /**
+     * Метод для возвращения множителя от 0.05 до 0.10
+     * @param degreeOfDehydration степень обезвоживания от 1 до 3
+     * @return множитель в виде дробного числа
+     * @throws IllegalArgumentException если степень обезвоживания не в диапазоне от 1 до 3
+     */
+    fun getMultiplier(degreeOfDehydration: Int): Double
 }
 
 // Интерфейс для расчета необходимого объема воды по весу и множителю
 interface IWaterIntakeCalculator {
-    fun calculateWaterIntake(weight: Double, multiplier: Double): Double // Метод для возвращения объема воды в литрах
+    /**
+     * Метод для возвращения объема воды в литрах
+     * @param weight вес человека в килограммах
+     * @param multiplier множитель в зависимости от степени обезвоживания
+     * @return объем воды в литрах в виде дробного числа
+     */
+    fun calculateWaterIntake(weight: Double, multiplier: Double): Double
 }
 
 // Интерфейс для расчета необходимого количества стаканов воды по объему воды и объему стакана
 interface IWaterIntakeInGlassesCalculator {
-    fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int // Метод для возвращения количества стаканов воды
+    /**
+     * Метод для возвращения количества стаканов воды
+     * @param waterIntake объем воды в литрах
+     * @param glassVolume объем стакана в миллилитрах
+     * @return количество стаканов воды в виде целого числа
+     */
+    fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int
 }
 
 // Класс для получения множителя по степени обезвоживания
@@ -47,11 +65,23 @@ class DehydrationTreatment(
     private val waterIntakeCalculator: IWaterIntakeConverter,
     private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConverter
 ) {
+    /**
+     * Метод для расчета объема воды по весу и степени обезвоживания
+     * @param weight вес человека в килограммах
+     * @param degreeOfDehydration степень обезвоживания от 1 до 3
+     * @return объем воды в литрах в виде дробного числа
+     */
     fun calculateWaterIntake(weight: Double, degreeOfDehydration: Int): Double {
         val multiplier = degreeOfDehydrationMultiplier.getMultiplier(degreeOfDehydration) // Получаем множитель по степени обезвоживания
         return waterIntakeCalculator.calculateWaterIntake(weight, multiplier) // Возвращаем объем воды по весу и множителю
     }
 
+    /**
+     * Метод для расчета количества стаканов воды по весу и степени обезвоживания
+     * @param weight вес человека в килограммах
+     * @param degreeOfDehydration степень обезвоживания от 1 до 3
+     * @return количество стаканов воды в виде целого числа
+     */
     fun calculateWaterIntakeInGlasses(weight: Double, degreeOfDehydration: Int): Int {
         val waterIntake = calculateWaterIntake(weight, degreeOfDehydration) // Получаем объем воды по весу и степени обезвоживания
         val glassVolume = 250 // Задаем объем стакана в миллилитрах
