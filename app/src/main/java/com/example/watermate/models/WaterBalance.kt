@@ -2,17 +2,34 @@ package com.example.watermate.models
 
 // Интерфейс для предоставления множителя в зависимости от возраста
 interface IAgeMultiplierProvider {
-    fun getMultiplierByAge(age: Int): Double // Метод для возвращения множителя по возрасту
+    /**
+     * Метод для возвращения множителя по возрасту
+     * @param age возраст пользователя в годах
+     * @return множитель для расчета потребления воды
+     */
+    fun getMultiplierByAge(age: Int): Double
 }
 
 // Интерфейс для расчета потребления воды в зависимости от веса и множителя
 interface IWaterIntakeConverter {
-    fun calculateWaterIntake(weight: Double, multiplier: Double): Double // Метод для возвращения потребления воды в литрах по весу и множителю
+    /**
+     * Метод для возвращения потребления воды в литрах по весу и множителю
+     * @param weight вес пользователя в килограммах
+     * @param multiplier множитель для расчета потребления воды
+     * @return потребление воды в литрах
+     */
+    fun calculateWaterIntake(weight: Double, multiplier: Double): Double
 }
 
 // Интерфейс для расчета потребления воды в стаканах в зависимости от объема стакана
 interface IWaterIntakeInGlassesConverter {
-    fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int // Метод для возвращения потребления воды в стаканах по объему воды и объему стакана
+    /**
+     * Метод для возвращения потребления воды в стаканах по объему воды и объему стакана
+     * @param waterIntake потребление воды в литрах
+     * @param glassVolume объем стакана в миллилитрах
+     * @return потребление воды в стаканах
+     */
+    fun calculateWaterIntakeInGlasses(waterIntake: Double, glassVolume: Int): Int
 }
 
 // Абстрактный класс для расчета водного баланса
