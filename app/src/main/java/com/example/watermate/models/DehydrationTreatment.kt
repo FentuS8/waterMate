@@ -38,3 +38,4 @@ class DehydrationTreatment(private val degreeOfDehydration: Int, private val age
 //println("Пользователь должен пить $waterIntake мл воды в день.")
 //println("Это примерно $waterIntakeInGlasses стаканов воды в день.")
 
+//123
