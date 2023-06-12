@@ -3,5 +3,10 @@
     <style name="buttonTextStyle" parent="android:TextAppearance">
         <item name="android:textAllCaps">false</item>
     </style>
+    <style name="CustomSeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressDrawable">@drawable/seekbar_progress</item>
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+        <item name="android:thumbTint">@color/color_accent</item>
+    </style>
 
 </resources>
