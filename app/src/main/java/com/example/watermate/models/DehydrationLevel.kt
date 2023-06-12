@@ -1,39 +1,17 @@
 package com.example.watermate.models
 
-interface IAppearanceEvaluator {
-    fun evaluateAppearance(): Int
+interface IEvaluator {
+    fun evaluate(): Int
 }
 
-interface IEyesEvaluator {
-    fun evaluateEyes(): Int
-}
-
-interface IMucousEvaluator {
-    fun evaluateMucous(): Int
-}
-
-interface ITearsEvaluator {
-    fun evaluateTears(): Int
-}
-
-class DehydrationLevel(
-    private val appearanceEvaluator: IAppearanceEvaluator,
-    private val eyesEvaluator: IEyesEvaluator,
-    private val mucousEvaluator: IMucousEvaluator,
-    private val tearsEvaluator: ITearsEvaluator
-) {
+class DehydrationLevel(private val evaluators: List<IEvaluator>) {
     fun getPoints(): Int {
-        return (
-                appearanceEvaluator.evaluateAppearance() +
-                        eyesEvaluator.evaluateEyes() +
-                        mucousEvaluator.evaluateMucous() +
-                        tearsEvaluator.evaluateTears()
-                )
+        return evaluators.sumOf { it.evaluate() }
     }
 }
 
-class DefaultAppearanceEvaluator(private val appearance: String) : IAppearanceEvaluator {
-    override fun evaluateAppearance(): Int {
+class DefaultAppearanceEvaluator(private val appearance: String) : IEvaluator {
+    override fun evaluate(): Int {
         return when (appearance) {
             "Normal" -> 0
             "Irritable" -> 1
@@ -43,8 +21,8 @@ class DefaultAppearanceEvaluator(private val appearance: String) : IAppearanceEv
     }
 }
 
-class DefaultEyesEvaluator(private val eyes: String) : IEyesEvaluator {
-    override fun evaluateEyes(): Int {
+class DefaultEyesEvaluator(private val eyes: String) : IEvaluator {
+    override fun evaluate(): Int {
         return when (eyes) {
             "Normal" -> 0
             "Light sleepiness" -> 1
@@ -54,8 +32,8 @@ class DefaultEyesEvaluator(private val eyes: String) : IEyesEvaluator {
     }
 }
 
-class DefaultMucousEvaluator(private val mucous: String) : IMucousEvaluator {
-    override fun evaluateMucous(): Int {
+class DefaultMucousEvaluator(private val mucous: String) : IEvaluator {
+    override fun evaluate(): Int {
         return when (mucous) {
             "Wet" -> 0
             "Sticky" -> 1
@@ -65,8 +43,8 @@ class DefaultMucousEvaluator(private val mucous: String) : IMucousEvaluator {
     }
 }
 
-class DefaultTearsEvaluator(private val tears: String) : ITearsEvaluator {
-    override fun evaluateTears(): Int {
+class DefaultTearsEvaluator(private val tears: String) : IEvaluator {
+    override fun evaluate(): Int {
         return when (tears) {
             "Yes" -> 0
             "Few" -> 1
