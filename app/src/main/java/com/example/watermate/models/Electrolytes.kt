@@ -5,7 +5,7 @@ import com.example.watermate.utils.interfaces.ISolutionProvider
 
 
 // Абстрактный класс для электролитов
-abstract class Electrolites(
+abstract class Electrolytes (
     private val element: String,
     private val age: Int,
     private val solutionProvider: ISolutionProvider,

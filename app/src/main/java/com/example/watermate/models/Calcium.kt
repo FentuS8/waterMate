@@ -8,4 +8,4 @@ class Calcium(
     age: Int,
     solutionProvider: ISolutionProvider,
     injectionsProvider: IInjectionsProvider
-) : Electrolites("Calcium", age, solutionProvider, injectionsProvider) // Наследуемся от абстрактного класса электролитов и передаем параметры
+) : Electrolytes("Calcium", age, solutionProvider, injectionsProvider) // Наследуемся от абстрактного класса электролитов и передаем параметры
