@@ -1,4 +1,4 @@
-package com.example.watermate.models.multipliers
+package com.example.watermate.utils.multipliers
 
 import com.example.watermate.utils.interfaces.IDegreeOfDehydrationMultiplier
 
