@@ -1,12 +1,14 @@
 package com.example.watermate.models
 
 import com.example.watermate.utils.interfaces.IDegreeOfDehydrationMultiplier
+import com.example.watermate.utils.interfaces.IWaterIntakeConverter
+import com.example.watermate.utils.interfaces.IWaterIntakeInGlassesConverter
 
 
 // Класс для лечения обезвоживания с помощью разных калькуляторов
 class DehydrationTreatment(
     private val degreeOfDehydrationMultiplier: IDegreeOfDehydrationMultiplier,
-    private val waterIntakeCalculator: IWaterIntakeConverter,
+    private val waterIntakeConverter: IWaterIntakeConverter,
     private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConverter
 ) {
     /**
@@ -17,7 +19,7 @@ class DehydrationTreatment(
      */
     fun calculateWaterIntake(weight: Double, degreeOfDehydration: Int): Double {
         val multiplier = degreeOfDehydrationMultiplier.getMultiplier(degreeOfDehydration) // Получаем множитель по степени обезвоживания
-        return waterIntakeCalculator.calculateWaterIntake(weight, multiplier) // Возвращаем объем воды по весу и множителю
+        return waterIntakeConverter.calculateWaterIntake(weight, multiplier) // Возвращаем объем воды по весу и множителю
     }
 
     /**

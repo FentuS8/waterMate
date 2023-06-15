@@ -5,19 +5,17 @@ import com.example.watermate.utils.interfaces.IWaterIntakeConverter
 import com.example.watermate.utils.interfaces.IWaterIntakeInGlassesConverter
 
 
-// Абстрактный класс для расчета водного баланса
-abstract class WaterBalance(
+// Класс для расчета водного баланса
+class WaterBalance(
     private val weight: Double,
+    private val age: Int,
     private val ageMultiplierProvider: IAgeMultiplierProvider,
     private val waterIntakeCalculator: IWaterIntakeConverter,
     private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConverter
 ) {
-    // Абстрактный метод для получения возраста пользователя
-    abstract fun getAge(): Int
-
     // Метод для расчета суточного потребления воды
     fun calculateDailyWaterIntake(): Double {
-        val multiplier = ageMultiplierProvider.getMultiplierByAge(getAge()) // Получаем множитель по возрасту пользователя
+        val multiplier = ageMultiplierProvider.getMultiplierByAge(age) // Получаем множитель по возрасту пользователя
         return waterIntakeCalculator.calculateWaterIntake(weight, multiplier) // Возвращаем потребление воды по весу и множителю
     }
 
