@@ -9,7 +9,7 @@ import android.widget.Button
 import com.example.watermate.custom_utils.CustomArrayAdapter
 
 @Suppress("DEPRECATION")
-class MainActivity : AppCompatActivity() {
+class WelcomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.start)
         button.setOnClickListener {
-            val intent = Intent(this, DehydrationActivity::class.java)
+            val intent = Intent(this, FunctionalActivity::class.java)
             startActivity(intent)
         }
 

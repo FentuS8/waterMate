@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dehydratation">
+
+    <fragment
+        android:id="@+id/navigation_dehydratation"
+        android:name="com.example.watermate.ui.dehydratation.DehydratationFragment"
+        android:label="@string/title_dehydratation"
+        tools:layout="@layout/fragment_dehydratation" />
+
+    <fragment
+        android:id="@+id/navigation_electrolites"
+        android:name="com.example.watermate.ui.electrolites.ElectrolitesFragment"
+        android:label="@string/title_electrolites"
+        tools:layout="@layout/fragment_electrolites" />
+
+    <fragment
+        android:id="@+id/navigation_water"
+        android:name="com.example.watermate.ui.water.WaterFragment"
+        android:label="@string/title_water"
+        tools:layout="@layout/fragment_water" />
+
+    <fragment
+        android:id="@+id/navigation_dehydratation_treatment"
+        android:name="com.example.watermate.ui.dehydratation_treatment.DehydratationTreatmentFragment"
+        android:label="@string/title_dehydratationTreatment"
+        tools:layout="@layout/fragment_dehydratation_treatment"/>
+</navigation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dehydratation"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_dehydratation" />
+
+    <item
+        android:id="@+id/navigation_electrolites"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_electrolites" />
+
+    <item
+        android:id="@+id/navigation_water"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_water" />
+
+    <item
+        android:id="@+id/navigation_dehydratation_treatment"
+        android:icon="@drawable/shakehands"
+        android:title="@string/title_dehydratationTreatment"/>
+
+</menu>

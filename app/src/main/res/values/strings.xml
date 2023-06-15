@@ -4,7 +4,7 @@
     <string name="welcome">Welcome!</string>
     <string name="handshake">Handshake</string>
     <string name="start">Let\'s start!</string>
-    <string name="labelDehydration">Dehydration</string>
+    <string name="labelDehydrationTreatment">Dehydration Treatment</string>
     <string name="appearance">Appearance</string>
     <string name="eyes">Eyes</string>
     <string name="mucous">Mucous</string>
@@ -17,4 +17,10 @@
         <item>determine the daily physiological \nneed for fluids</item>
         <item>calculate the required amount \nof fluid in case of dehydration</item>
     </string-array>
+
+    <string name="title_activity_functional">FunctionalActivity</string>
+    <string name="title_dehydratation">Dehydratation</string>
+    <string name="title_electrolites">Electrolites</string>
+    <string name="title_water">Water</string>
+    <string name="title_dehydratationTreatment">Dehydratation Treatment</string>
 </resources>
