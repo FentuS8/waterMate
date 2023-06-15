@@ -13,7 +13,7 @@ class WelcomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_welcome_screen)
 
         val abilitiesArray = resources.getStringArray(R.array.possibilities_list)
 
