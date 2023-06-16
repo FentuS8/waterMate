@@ -24,4 +24,25 @@
     <string name="title_electrolites">Electrolites</string>
     <string name="title_water">Water</string>
     <string name="title_dehydrationTreatment">Dehydration Treatment</string>
+
+    <string-array name="labels_appearance">
+        <item>Normal</item>
+        <item>Irritable</item>
+        <item>Sluggish</item>
+    </string-array>
+    <string-array name="labels_eyes">
+        <item>Normal</item>
+        <item>Light sleepiness</item>
+        <item>Drowsy</item>
+    </string-array>
+    <string-array name="labels_mucous">
+        <item>Wet</item>
+        <item>Sticky</item>
+        <item>Dry</item>
+    </string-array>
+    <string-array name="labels_tears">
+        <item>Yes</item>
+        <item>Few</item>
+        <item>No</item>
+    </string-array>
 </resources>
