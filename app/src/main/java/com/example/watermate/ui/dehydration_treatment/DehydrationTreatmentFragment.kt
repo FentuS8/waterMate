@@ -1,4 +1,4 @@
-package com.example.watermate.ui.dehydratation_treatment
+package com.example.watermate.ui.dehydration_treatment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,13 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.watermate.R
-import com.example.watermate.databinding.FragmentDehydratationTreatmentBinding
-import com.example.watermate.ui.dehydratation_treatment.DehydratationTreatmentViewModel
+import com.example.watermate.databinding.FragmentDehydrationTreatmentBinding
 
-class DehydratationTreatmentFragment : Fragment() {
+class DehydrationTreatmentFragment : Fragment() {
 
-    private var _binding: FragmentDehydratationTreatmentBinding? = null
+    private var _binding: FragmentDehydrationTreatmentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,12 +23,12 @@ class DehydratationTreatmentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val dehydratationTreatmentViewModel =
-            ViewModelProvider(this).get(DehydratationTreatmentViewModel::class.java)
+            ViewModelProvider(this).get(DehydrationTreatmentViewModel::class.java)
 
-        _binding = FragmentDehydratationTreatmentBinding.inflate(inflater, container, false)
+        _binding = FragmentDehydrationTreatmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDehydratationTreatment
+        val textView: TextView = binding.textDehydrationTreatment
         dehydratationTreatmentViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }

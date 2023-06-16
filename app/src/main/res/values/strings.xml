@@ -4,6 +4,7 @@
     <string name="welcome">Welcome!</string>
     <string name="handshake">Handshake</string>
     <string name="start">Let\'s start!</string>
+    <string name="calculate">Calculate</string>
     <string name="labelDehydrationTreatment">Dehydration Treatment</string>
     <string name="appearance">Appearance</string>
     <string name="eyes">Eyes</string>
@@ -19,8 +20,8 @@
     </string-array>
 
     <string name="title_activity_functional">FunctionalActivity</string>
-    <string name="title_dehydratation">Dehydratation</string>
+    <string name="title_dehydration">Dehydration</string>
     <string name="title_electrolites">Electrolites</string>
     <string name="title_water">Water</string>
-    <string name="title_dehydratationTreatment">Dehydratation Treatment</string>
+    <string name="title_dehydrationTreatment">Dehydration Treatment</string>
 </resources>

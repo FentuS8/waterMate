@@ -4,4 +4,5 @@
     <color name="bg">#F6F6F6</color>
     <color name="button_card">#FCFCFC</color>
     <color name="color_accent">#16C0A3</color>
+    <color name="icon_text">#797979</color>
 </resources>

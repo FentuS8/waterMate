@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_dehydratation">
+    app:startDestination="@+id/navigation_dehydration">
 
     <fragment
-        android:id="@+id/navigation_dehydratation"
-        android:name="com.example.watermate.ui.dehydratation.DehydratationFragment"
-        android:label="@string/title_dehydratation"
-        tools:layout="@layout/fragment_dehydratation" />
+        android:id="@+id/navigation_dehydration"
+        android:name="com.example.watermate.ui.dehydration.DehydrationFragment"
+        android:label="@string/title_dehydration"
+        tools:layout="@layout/fragment_dehydration" />
 
     <fragment
         android:id="@+id/navigation_electrolites"
@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_water" />
 
     <fragment
-        android:id="@+id/navigation_dehydratation_treatment"
-        android:name="com.example.watermate.ui.dehydratation_treatment.DehydratationTreatmentFragment"
-        android:label="@string/title_dehydratationTreatment"
-        tools:layout="@layout/fragment_dehydratation_treatment"/>
+        android:id="@+id/navigation_dehydration_treatment"
+        android:name="com.example.watermate.ui.dehydration_treatment.DehydrationTreatmentFragment"
+        android:label="@string/title_dehydrationTreatment"
+        tools:layout="@layout/fragment_dehydration_treatment"/>
 </navigation>

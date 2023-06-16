@@ -47,7 +47,7 @@ class CustomArrayAdapter(context: Context, resource: Int, objects: Array<String>
 
         if (position == 0) {
             textView.setTypeface(null, Typeface.NORMAL)
-            textView.setPadding(30,0,0,0)
+            textView.setPadding(30,0,0,20)
         } else {
             textView.setTypeface(null, Typeface.NORMAL)
         }
