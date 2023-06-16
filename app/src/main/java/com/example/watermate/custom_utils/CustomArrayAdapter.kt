@@ -1,4 +1,4 @@
-package com.example.watermate
+package com.example.watermate.custom_utils
 
 import android.content.Context
 import android.graphics.Typeface
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.example.watermate.R
 
 class CustomArrayAdapter(context: Context, resource: Int, objects: Array<String>) :
     ArrayAdapter<String>(context, resource, objects) {
@@ -46,7 +47,7 @@ class CustomArrayAdapter(context: Context, resource: Int, objects: Array<String>
 
         if (position == 0) {
             textView.setTypeface(null, Typeface.NORMAL)
-            textView.setPadding(30,0,0,0)
+            textView.setPadding(30,0,0,20)
         } else {
             textView.setTypeface(null, Typeface.NORMAL)
         }

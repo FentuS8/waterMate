@@ -4,17 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.os.Bundle
-import android.content.res.Resources
 import android.widget.ListView
-import android.widget.ArrayAdapter
 import android.widget.Button
+import com.example.watermate.custom_utils.CustomArrayAdapter
 
 @Suppress("DEPRECATION")
-class MainActivity : AppCompatActivity() {
+class WelcomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_welcome_screen)
 
         val abilitiesArray = resources.getStringArray(R.array.possibilities_list)
 
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.start)
         button.setOnClickListener {
-            val intent = Intent(this, DehydrationActivity::class.java)
+            val intent = Intent(this, FunctionalActivity::class.java)
             startActivity(intent)
         }
 
