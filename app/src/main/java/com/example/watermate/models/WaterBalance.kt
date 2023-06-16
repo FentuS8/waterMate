@@ -1,39 +1,28 @@
 package com.example.watermate.models
 
-class WaterBalance(private val age: Int, private val weight: Double) {
+import com.example.watermate.utils.interfaces.IAgeMultiplierProvider
+import com.example.watermate.utils.interfaces.IWaterIntakeConverter
+import com.example.watermate.utils.interfaces.IWaterIntakeInGlassesConverter
+
+
+// Класс для расчета водного баланса
+class WaterBalance(
+    private val weight: Double,
+    private val age: Int,
+    private val ageMultiplierProvider: IAgeMultiplierProvider,
+    private val waterIntakeCalculator: IWaterIntakeConverter,
+    private val waterIntakeInGlassesCalculator: IWaterIntakeInGlassesConverter
+) {
+    // Метод для расчета суточного потребления воды
     fun calculateDailyWaterIntake(): Double {
-        // Формула для вычисления дневной нормы потребления воды
-        val waterIntake = weight * getMultiplierByAge()
-
-        return waterIntake
+        val multiplier = ageMultiplierProvider.getMultiplierByAge(age) // Получаем множитель по возрасту пользователя
+        return waterIntakeCalculator.calculateWaterIntake(weight, multiplier) // Возвращаем потребление воды по весу и множителю
     }
 
+    // Метод для расчета суточного потребления воды в стаканах
     fun calculateDailyWaterIntakeInGlasses(): Int {
-        val waterIntake = calculateDailyWaterIntake()
-        val glassVolume = 250 // Предположим, что объем одного стакана равен 250 мл
-        val waterIntakeInGlasses = (waterIntake / glassVolume).toInt()
-
-        return waterIntakeInGlasses
-    }
-
-    private fun getMultiplierByAge(): Double {
-        return when {
-            age < 14 -> 40.0 // Если возраст меньше 14 лет, множитель равен 40
-            age < 30 -> 35.0 // Если возраст меньше 30 лет, множитель равен 35
-            age < 55 -> 30.0 // Если возраст меньше 55 лет, множитель равен 30
-            else -> 25.0 // В остальных случаях множитель равен 25
-        }
+        val waterIntake = calculateDailyWaterIntake() // Получаем потребление воды по весу и возрасту пользователя
+        val glassVolume = 250 // Задаем объем стакана в миллилитрах
+        return waterIntakeInGlassesCalculator.calculateWaterIntakeInGlasses(waterIntake, glassVolume) // Возвращаем потребление воды в стаканах по объему воды и объему стакана
     }
 }
-
-//val userAge = 25
-//val userWeight = 70.5
-//
-//val waterBalance = WaterBalance(userAge, userWeight)
-//
-//val dailyWaterIntake = waterBalance.calculateDailyWaterIntake()
-//val dailyWaterIntakeInGlasses = waterBalance.calculateDailyWaterIntakeInGlasses()
-//
-//println("Пользователь должен пить $dailyWaterIntake литров воды в день.")
-//println("Это примерно $dailyWaterIntakeInGlasses стаканов воды в день.")
-

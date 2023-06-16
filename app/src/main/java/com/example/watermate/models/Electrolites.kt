@@ -1,35 +1,26 @@
 package com.example.watermate.models
 
-class Electrolites(private val element: String, private val age: Int) {
+import com.example.watermate.utils.interfaces.IInjectionsProvider
+import com.example.watermate.utils.interfaces.ISolutionProvider
 
+
+// Абстрактный класс для электролитов
+class Electrolites (
+    private val element: String,
+    private val age: Int,
+    private val solutionProvider: ISolutionProvider,
+    private val injectionsProvider: IInjectionsProvider
+) {
+
+    /**
+     * Метод для получения информации об электролитах
+     * @return строка с информацией об электролитах
+     */
     fun getInfo(): String {
-        val solution = getSolution()
-        val injections = getInjections()
-        return "We administer a ten percent solution of\n\n$solution,\n\nin $injections injections"
-    }
-
-    private fun getSolution(): String {
-        val calciumChloride = when (element) {
-            "Calcium" -> "0.5 ml/day (calcium chloride)"
-            else -> ""
-        }
-        val calciumGluconate = when (element) {
-            "Calcium" -> "1.0 ml/day (calcium gluconate)"
-            else -> ""
-        }
-        return "$calciumChloride - $calciumGluconate"
-    }
-
-    private fun getInjections(): String {
-        val injections = when (age) {
-            in 1..2 -> "1-2"
-            else -> "1-10"
-        }
-        return injections
+        val solution = solutionProvider.getSolution(element) // Получаем раствор по элементу
+        val injections = injectionsProvider.getInjections(age) // Получаем количество инъекций по возрасту
+        return "We administer a ten percent solution of\n\n$solution,\n\nin $injections injections" // Возвращаем информацию в виде строки
     }
 }
 
-//fun main() {
-//    val electrolites = Electrolites("Calcium", 1)
-//    println(electrolites.getInfo())
-//}
+
