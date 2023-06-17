@@ -27,19 +27,19 @@ class DehydrationFragment : Fragment() {
 
         val seekbarAppearance = binding.seekbarAppearance
         seekbarAppearance.labels = resources.getStringArray(R.array.labels_appearance)
-        seekbarAppearance.values = arrayOf(0, 50, 100)
+        seekbarAppearance.max = 2
 
         val seekbarEyes = binding.seekbarEyes
         seekbarEyes.labels = resources.getStringArray(R.array.labels_eyes)
-        seekbarEyes.values = arrayOf(0, 50, 100)
+        seekbarEyes.max = 2
 
         val seekbarMucous = binding.seekbarMucous
         seekbarMucous.labels = resources.getStringArray(R.array.labels_mucous)
-        seekbarMucous.values = arrayOf(0, 50, 100)
+        seekbarMucous.max = 2
 
         val seekbarTears = binding.seekbarTears
         seekbarTears.labels = resources.getStringArray(R.array.labels_tears)
-        seekbarTears.values = arrayOf(0, 50, 100)
+        seekbarTears.max = 2
 
         return root
     }
