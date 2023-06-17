@@ -1,0 +1,23 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:scrollbarSize="10dp"
+    android:clipChildren="false"
+    tools:context=".ui.dehydration.DehydrationFragment">
+
+    <ViewFlipper
+        android:id="@+id/dehydrationFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/fragment_dehydration_input" />
+
+        <include layout="@layout/fragment_dehydration_result" />
+
+    </ViewFlipper>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

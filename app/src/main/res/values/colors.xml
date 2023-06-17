@@ -7,5 +7,6 @@
     <color name="icon_text">#797979</color>
     <color name="seekbar_line">#E5E5E5</color>
     <color name="dots">#9C9C9C</color>
+    <color name="result_card">#0ED06D</color>
     <color name="icon" tools:ignore="MissingDefaultResource">#2B2B2B</color>
 </resources>

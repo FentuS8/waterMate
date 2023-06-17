@@ -4,15 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ViewFlipper
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.watermate.R
-import com.example.watermate.databinding.FragmentDehydrationBinding
+import com.example.watermate.databinding.FragmentDehydrationInputBinding
+import com.example.watermate.databinding.FragmentDehydrationMainBinding
 
 class DehydrationFragment : Fragment() {
 
-    private var _binding: FragmentDehydrationBinding? = null
-    private val binding get() = _binding!!
+    private var _bindingInput: FragmentDehydrationInputBinding? = null
+    private val bindingInput get() = _bindingInput!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,30 +25,43 @@ class DehydrationFragment : Fragment() {
         val dehydratationViewModel =
             ViewModelProvider(this).get(DehydrationViewModel::class.java)
 
-        _binding = FragmentDehydrationBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        _bindingInput = FragmentDehydrationInputBinding.inflate(inflater, container, false)
+        val root: View = bindingInput.root
 
-        val seekbarAppearance = binding.seekbarAppearance
+        val seekbarAppearance = bindingInput.seekbarAppearance
         seekbarAppearance.labels = resources.getStringArray(R.array.labels_appearance)
         seekbarAppearance.max = 2
 
-        val seekbarEyes = binding.seekbarEyes
+        val seekbarEyes = bindingInput.seekbarEyes
         seekbarEyes.labels = resources.getStringArray(R.array.labels_eyes)
         seekbarEyes.max = 2
 
-        val seekbarMucous = binding.seekbarMucous
+        val seekbarMucous = bindingInput.seekbarMucous
         seekbarMucous.labels = resources.getStringArray(R.array.labels_mucous)
         seekbarMucous.max = 2
 
-        val seekbarTears = binding.seekbarTears
+        val seekbarTears = bindingInput.seekbarTears
         seekbarTears.labels = resources.getStringArray(R.array.labels_tears)
         seekbarTears.max = 2
+
+        val viewFlipper = root.findViewById<ViewFlipper>(R.id.dehydrationFlipper)
+
+        val calc = root.findViewById<AppCompatButton>(R.id.calculate_dehydration)
+        val back = root.findViewById<AppCompatButton>(R.id.back_to_main_dehydration)
+
+        calc.setOnClickListener {
+            viewFlipper.showNext()
+        }
+
+        back.setOnClickListener {
+            viewFlipper.showPrevious()
+        }
 
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        _bindingInput = null
     }
 }

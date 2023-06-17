@@ -9,7 +9,7 @@
         android:id="@+id/navigation_dehydration"
         android:name="com.example.watermate.ui.dehydration.DehydrationFragment"
         android:label="@string/title_dehydration"
-        tools:layout="@layout/fragment_dehydration" />
+        tools:layout="@layout/fragment_dehydration_main" />
 
     <fragment
         android:id="@+id/navigation_electrolites"

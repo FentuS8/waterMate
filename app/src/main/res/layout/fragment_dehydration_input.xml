@@ -25,6 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
+<!--    region Appearance card-->
     <TextView
         android:id="@+id/appearanceCard"
         android:layout_width="330dp"
@@ -55,7 +56,9 @@
         app:layout_constraintStart_toStartOf="@+id/appearanceCard"
         app:layout_constraintTop_toTopOf="@+id/appearanceCard"
         app:layout_constraintVertical_bias="1.0" />
+<!--    endregion-->
 
+<!--    region Eyes card-->
     <TextView
         android:id="@+id/eyesCard"
         android:layout_width="330dp"
@@ -86,7 +89,9 @@
         app:layout_constraintStart_toStartOf="@+id/eyesCard"
         app:layout_constraintTop_toTopOf="@+id/eyesCard"
         app:layout_constraintVertical_bias="1.0" />
+<!--    endregion-->
 
+<!--    region Mucous card-->
     <TextView
         android:id="@+id/mucousCard"
         android:layout_width="330dp"
@@ -117,7 +122,9 @@
         app:layout_constraintStart_toStartOf="@+id/mucousCard"
         app:layout_constraintTop_toTopOf="@+id/mucousCard"
         app:layout_constraintVertical_bias="1.0" />
+<!--    endregion-->
 
+<!--    region Tears card-->
     <TextView
         android:id="@+id/tearsCard"
         android:layout_width="330dp"
@@ -148,9 +155,10 @@
         app:layout_constraintStart_toStartOf="@+id/tearsCard"
         app:layout_constraintTop_toTopOf="@+id/tearsCard"
         app:layout_constraintVertical_bias="1.0" />
+<!--    endregion-->
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/start"
+        android:id="@+id/calculate_dehydration"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:background="@drawable/card"
@@ -165,6 +173,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tearsCard"
         app:layout_constraintVertical_bias="0.325" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
