@@ -14,7 +14,8 @@ import kotlin.math.abs
 
 class CustomSeekbar : AppCompatSeekBar {
     private val paint = Paint()
-    private var dotColor = Color.argb(100,79,79,79)
+    private var dotColor = Color.argb(200,79,79,79)
+    private var textColor = Color.argb(200,30,30,30)
     private var numDots = 3
     private val fixedValues = arrayOf(0, 50, 100)
     var values = arrayOf(0, 50, 100)
@@ -42,10 +43,10 @@ class CustomSeekbar : AppCompatSeekBar {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val dotRadius = 20f
+        val dotRadius = 12f
         val dotSpacing = (width - paddingLeft - paddingRight) / (numDots - 1)
         val centerY = height / 2f
-        val textOffset = 30f
+        val textOffset = 40f
 
         for (i in 0 until numDots) {
             val centerX = (paddingLeft + i * dotSpacing).toFloat()
@@ -58,9 +59,9 @@ class CustomSeekbar : AppCompatSeekBar {
             val textWidth = paint.measureText(label)
             val textX = centerX - textWidth / 2
             val textY = centerY - dotRadius - textOffset
-            paint.textSize = 40f
-            paint.typeface = ResourcesCompat.getFont(context, R.font.samsungone700)
-            paint.color = if (isSelected) Color.rgb(16, 192, 163) else dotColor
+            paint.textSize = 45f
+            paint.typeface = ResourcesCompat.getFont(context, R.font.samsungone400)
+            paint.color = if (isSelected) Color.rgb(16, 192, 163) else textColor
             canvas.drawText(label, textX, textY, paint)
         }
     }
