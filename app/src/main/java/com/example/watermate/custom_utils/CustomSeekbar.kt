@@ -10,17 +10,14 @@ import android.widget.SeekBar
 import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.core.content.res.ResourcesCompat
 import com.example.watermate.R
-import kotlin.math.abs
 
 class CustomSeekbar : AppCompatSeekBar {
     private val paint = Paint()
     private var dotColor = Color.argb(200,79,79,79)
     private var textColor = Color.argb(200,30,30,30)
-    private var numDots = 3
-    private val fixedValues = arrayOf(0, 50, 100)
-    var values = arrayOf(0, 50, 100)
-    var labels = arrayOf("label", "label", "label")
-
+    private var maxValue = 2
+    private var values = arrayOf(0, 1, 2)
+    var labels: Array<String> = arrayOf("", "", "")
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -43,6 +40,7 @@ class CustomSeekbar : AppCompatSeekBar {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
+        val numDots = maxValue + 1
         val dotRadius = 12f
         val dotSpacing = (width - paddingLeft - paddingRight) / (numDots - 1)
         val centerY = height / 2f
@@ -66,16 +64,5 @@ class CustomSeekbar : AppCompatSeekBar {
         }
     }
 
-    private fun getClosestValue(value: Int): Int {
-        var closestValue = fixedValues[0]
-        var minDiff = abs(value - closestValue)
-        for (i in 1 until fixedValues.size) {
-            val diff = abs(value - fixedValues[i])
-            if (diff < minDiff) {
-                closestValue = fixedValues[i]
-                minDiff = diff
-            }
-        }
-        return closestValue
-    }
+    private fun getClosestValue(value: Int): Int { return value.coerceIn(0, maxValue) }
 }
