@@ -1,155 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dehydrationFrameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg"
-    android:scrollbarSize="10dp"
-    android:clipChildren="false"
-    tools:context=".ui.dehydration.DehydrationFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/appearanceCard"
-        android:layout_width="330dp"
-        android:layout_height="100dp"
-        android:background="@drawable/card"
-        android:fontFamily="@font/samsungone700"
-        android:paddingStart="16dp"
-        android:paddingTop="10dp"
-        android:text="@string/appearance"
-        android:textColor="@color/textBlack"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137"
-        tools:ignore="RtlSymmetry" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:visibility="visible"
+        android:id="@+id/fragment_dehydration_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:scrollbarSize="10dp"
+        android:clipChildren="false"
+        tools:context=".ui.dehydration.DehydrationFragment">
 
-    <com.example.watermate.custom_utils.CustomSeekbar
-        android:id="@+id/seekbarAppearance"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:progressTint="#00FFFFFF"
-        android:thumbTint="@color/color_accent"
-        app:layout_constraintBottom_toBottomOf="@+id/appearanceCard"
-        app:layout_constraintEnd_toEndOf="@+id/appearanceCard"
-        app:layout_constraintStart_toStartOf="@+id/appearanceCard"
-        app:layout_constraintTop_toTopOf="@+id/appearanceCard"
-        app:layout_constraintVertical_bias="1.0" />
+        <!--region Appearance Card-->
+        <TextView
+            android:id="@+id/appearanceCard"
+            android:layout_width="330dp"
+            android:layout_height="100dp"
+            android:background="@drawable/card"
+            android:fontFamily="@font/samsungone700"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:text="@string/appearance"
+            android:textColor="@color/textBlack"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.137"
+            tools:ignore="RtlSymmetry" />
 
-    <TextView
-        android:id="@+id/eyesCard"
-        android:layout_width="330dp"
-        android:layout_height="100dp"
-        android:background="@drawable/card"
-        android:fontFamily="@font/samsungone700"
-        android:paddingStart="16dp"
-        android:paddingTop="10dp"
-        android:text="@string/eyes"
-        android:textColor="@color/textBlack"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appearanceCard"
-        app:layout_constraintVertical_bias="0.03"
-        tools:ignore="RtlSymmetry" />
+        <com.example.watermate.custom_utils.CustomSeekbar
+            android:id="@+id/seekbarAppearance"
+            android:layout_width="260dp"
+            android:layout_height="60dp"
+            android:progressTint="#00FFFFFF"
+            android:thumbTint="@color/color_accent"
+            app:layout_constraintBottom_toBottomOf="@+id/appearanceCard"
+            app:layout_constraintEnd_toEndOf="@+id/appearanceCard"
+            app:layout_constraintStart_toStartOf="@+id/appearanceCard"
+            app:layout_constraintTop_toTopOf="@+id/appearanceCard"
+            app:layout_constraintVertical_bias="1.0" />
+        <!--endregion-->
 
-    <com.example.watermate.custom_utils.CustomSeekbar
-        android:id="@+id/seekbarEyes"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:progressTint="#00FFFFFF"
-        android:thumbTint="@color/color_accent"
-        app:layout_constraintBottom_toBottomOf="@+id/eyesCard"
-        app:layout_constraintEnd_toEndOf="@+id/eyesCard"
-        app:layout_constraintStart_toStartOf="@+id/eyesCard"
-        app:layout_constraintTop_toTopOf="@+id/eyesCard"
-        app:layout_constraintVertical_bias="1.0" />
+        <!--region Eyes Card-->
+        <TextView
+            android:id="@+id/eyesCard"
+            android:layout_width="330dp"
+            android:layout_height="100dp"
+            android:background="@drawable/card"
+            android:fontFamily="@font/samsungone700"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:text="@string/eyes"
+            android:textColor="@color/textBlack"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appearanceCard"
+            app:layout_constraintVertical_bias="0.03"
+            tools:ignore="RtlSymmetry" />
 
-    <TextView
-        android:id="@+id/mucousCard"
-        android:layout_width="330dp"
-        android:layout_height="100dp"
-        android:background="@drawable/card"
-        android:fontFamily="@font/samsungone700"
-        android:paddingStart="16dp"
-        android:paddingTop="10dp"
-        android:text="@string/mucous"
-        android:textColor="@color/textBlack"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eyesCard"
-        app:layout_constraintVertical_bias="0.04"
-        tools:ignore="RtlSymmetry" />
+        <com.example.watermate.custom_utils.CustomSeekbar
+            android:id="@+id/seekbarEyes"
+            android:layout_width="260dp"
+            android:layout_height="60dp"
+            android:progressTint="#00FFFFFF"
+            android:thumbTint="@color/color_accent"
+            app:layout_constraintBottom_toBottomOf="@+id/eyesCard"
+            app:layout_constraintEnd_toEndOf="@+id/eyesCard"
+            app:layout_constraintStart_toStartOf="@+id/eyesCard"
+            app:layout_constraintTop_toTopOf="@+id/eyesCard"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <com.example.watermate.custom_utils.CustomSeekbar
-        android:id="@+id/seekbarMucous"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:progressTint="#00FFFFFF"
-        android:thumbTint="@color/color_accent"
-        app:layout_constraintBottom_toBottomOf="@+id/mucousCard"
-        app:layout_constraintEnd_toEndOf="@+id/mucousCard"
-        app:layout_constraintStart_toStartOf="@+id/mucousCard"
-        app:layout_constraintTop_toTopOf="@+id/mucousCard"
-        app:layout_constraintVertical_bias="1.0" />
+        <!--endregion-->
 
-    <TextView
-        android:id="@+id/tearsCard"
-        android:layout_width="330dp"
-        android:layout_height="100dp"
-        android:background="@drawable/card"
-        android:fontFamily="@font/samsungone700"
-        android:paddingStart="16dp"
-        android:paddingTop="10dp"
-        android:text="@string/tears"
-        android:textColor="@color/textBlack"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mucousCard"
-        app:layout_constraintVertical_bias="0.06"
-        tools:ignore="RtlSymmetry" />
+        <!--region Mucous Card-->
+        <TextView
+            android:id="@+id/mucousCard"
+            android:layout_width="330dp"
+            android:layout_height="100dp"
+            android:background="@drawable/card"
+            android:fontFamily="@font/samsungone700"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:text="@string/mucous"
+            android:textColor="@color/textBlack"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eyesCard"
+            app:layout_constraintVertical_bias="0.04"
+            tools:ignore="RtlSymmetry" />
 
-    <com.example.watermate.custom_utils.CustomSeekbar
-        android:id="@+id/seekbarTears"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:progressTint="#00FFFFFF"
-        android:thumbTint="@color/color_accent"
-        app:layout_constraintBottom_toBottomOf="@+id/tearsCard"
-        app:layout_constraintEnd_toEndOf="@+id/tearsCard"
-        app:layout_constraintStart_toStartOf="@+id/tearsCard"
-        app:layout_constraintTop_toTopOf="@+id/tearsCard"
-        app:layout_constraintVertical_bias="1.0" />
+        <com.example.watermate.custom_utils.CustomSeekbar
+            android:id="@+id/seekbarMucous"
+            android:layout_width="260dp"
+            android:layout_height="60dp"
+            android:progressTint="#00FFFFFF"
+            android:thumbTint="@color/color_accent"
+            app:layout_constraintBottom_toBottomOf="@+id/mucousCard"
+            app:layout_constraintEnd_toEndOf="@+id/mucousCard"
+            app:layout_constraintStart_toStartOf="@+id/mucousCard"
+            app:layout_constraintTop_toTopOf="@+id/mucousCard"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/start"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:background="@drawable/card"
-        android:fontFamily="@font/samsungsharpsansbold"
-        android:text="@string/calculate"
-        android:textAppearance="@style/buttonTextStyle"
-        android:textColor="@color/textBlack"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tearsCard"
-        app:layout_constraintVertical_bias="0.325" />
+        <!--endregion-->
+
+        <!--region Tears Card-->
+        <TextView
+            android:id="@+id/tearsCard"
+            android:layout_width="330dp"
+            android:layout_height="100dp"
+            android:background="@drawable/card"
+            android:fontFamily="@font/samsungone700"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:text="@string/tears"
+            android:textColor="@color/textBlack"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mucousCard"
+            app:layout_constraintVertical_bias="0.06"
+            tools:ignore="RtlSymmetry" />
+
+        <com.example.watermate.custom_utils.CustomSeekbar
+            android:id="@+id/seekbarTears"
+            android:layout_width="260dp"
+            android:layout_height="60dp"
+            android:progressTint="#00FFFFFF"
+            android:thumbTint="@color/color_accent"
+            app:layout_constraintBottom_toBottomOf="@+id/tearsCard"
+            app:layout_constraintEnd_toEndOf="@+id/tearsCard"
+            app:layout_constraintStart_toStartOf="@+id/tearsCard"
+            app:layout_constraintTop_toTopOf="@+id/tearsCard"
+            app:layout_constraintVertical_bias="1.0" />
+        <!--endregion-->
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dehydrationCalculate"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/card"
+            android:fontFamily="@font/samsungsharpsansbold"
+            android:text="@string/calculate"
+            android:textAppearance="@style/buttonTextStyle"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tearsCard"
+            app:layout_constraintVertical_bias="0.325" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:visibility="gone"
+        android:id="@+id/fragment_dehydration_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:scrollbarSize="10dp"
+        android:clipChildren="false"
+        tools:context=".ui.dehydration.DehydrationFragment">
+
+        <TextView
+            android:id="@+id/appearanceResultCard"
+            android:layout_width="330dp"
+            android:layout_height="100dp"
+            android:background="@drawable/result_card"
+            android:fontFamily="@font/samsungone700"
+            android:gravity="center"
+            android:text="@string/outputDehydration"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dehydrationBack"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/card"
+            android:fontFamily="@font/samsungsharpsansbold"
+            android:text="@string/back"
+            android:textAppearance="@style/buttonTextStyle"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.867" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

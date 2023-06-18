@@ -5,11 +5,14 @@
     <string name="handshake">Handshake</string>
     <string name="start">Let\'s start!</string>
     <string name="calculate">Calculate</string>
+    <string name="back">Back</string>
     <string name="labelDehydrationTreatment">Dehydration Treatment</string>
     <string name="appearance">Appearance</string>
     <string name="eyes">Eyes</string>
     <string name="mucous">Mucous</string>
     <string name="tears">Tears</string>
+
+    <string name="outputDehydration">U are still alive!</string>
 
     <string-array name="possibilities_list">
         <item>With this application you will \nbe able to:</item>
