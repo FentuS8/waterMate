@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_dehydration"
         android:icon="@drawable/dehydration_button_selector"
-        android:title="@string/title_dehydration"/>
+        android:title="@string/title_dehydration" />
 
     <item
         android:id="@+id/navigation_electrolites"
