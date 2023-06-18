@@ -1,22 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/waterFrameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.water.WaterFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragmentWaterMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        tools:context=".ui.water.WaterFragment">
+
+        <TextView
+            android:id="@+id/inputAgeWater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/samsungone700"
+            android:text="@string/ageInput"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.299" />
+
+        <RelativeLayout
+            android:id="@+id/ageLayout"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:background="@drawable/card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.756"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.295">
+
+            <EditText
+                android:id="@+id/ageEditText"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/samsungone700"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:padding="8dp"
+                android:paddingStart="20dp"
+                android:text="18"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText,LabelFor,RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/minusAgeButton"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/ageEditText"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/samsungone700"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="-"
+                android:textColor="@color/textBlack"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/plusAgeButton"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/samsungone700"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="+"
+                android:textColor="@color/textBlack"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/inputWeightWater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/samsungone700"
+            android:text="@string/weightInput"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/weightLayout"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:background="@drawable/card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.756"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499">
+
+            <EditText
+                android:id="@+id/weightEditText"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/samsungone700"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:padding="8dp"
+                android:paddingStart="20dp"
+                android:text="18"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText,LabelFor,RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/minusWeightButton"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/weightEditText"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/samsungone700"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="-"
+                android:textColor="@color/textBlack"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/plusWeightButton"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/samsungone700"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="+"
+                android:textColor="@color/textBlack"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/waterCalculate"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/card"
+            android:fontFamily="@font/samsungsharpsansbold"
+            android:text="@string/calculate"
+            android:textAppearance="@style/buttonTextStyle"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputWeightWater"
+            app:layout_constraintVertical_bias="0.6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_water_result"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:scrollbarSize="10dp"
+        android:clipChildren="false"
+        tools:context=".ui.water.WaterFragment">
+
+        <TextView
+            android:id="@+id/waterResultCard"
+            android:layout_width="330dp"
+            android:layout_height="100dp"
+            android:background="@drawable/result_card"
+            android:fontFamily="@font/samsungone700"
+            android:gravity="center"
+            android:text="@string/outputDehydration"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/waterBack"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/card"
+            android:fontFamily="@font/samsungsharpsansbold"
+            android:text="@string/back"
+            android:textAppearance="@style/buttonTextStyle"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waterResultCard"
+            app:layout_constraintVertical_bias="0.6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

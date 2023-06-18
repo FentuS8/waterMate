@@ -1,9 +1,10 @@
 package com.example.watermate
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.Window
-import android.widget.TextView
+import android.widget.ImageView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -44,5 +45,11 @@ class FunctionalActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val button = findViewById<ImageView>(R.id.information)
+        button.setOnClickListener {
+            val intent = Intent(this, Info::class.java)
+            startActivity(intent)
+        }
     }
 }
