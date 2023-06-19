@@ -4,60 +4,38 @@ import com.example.watermate.models.DehydrationLevel
 import com.example.watermate.models.DehydrationTreatment
 import com.example.watermate.models.Electrolites
 import com.example.watermate.models.WaterBalance
-import com.example.watermate.models.converters.WaterIntakeConverter
-import com.example.watermate.models.converters.WaterIntakeInGlassesConverter
-import com.example.watermate.models.evaluators.DefaultAppearanceEvaluator
-import com.example.watermate.models.evaluators.DefaultEyesEvaluator
-import com.example.watermate.models.evaluators.DefaultMucousEvaluator
-import com.example.watermate.models.evaluators.DefaultTearsEvaluator
-import com.example.watermate.models.multipliers.DegreeOfDehydrationMultiplier
-import com.example.watermate.models.providers.AgeBasedInjectionsProvider
-import com.example.watermate.models.providers.CalciumSolutionProvider
-import com.example.watermate.models.providers.DefaultAgeMultiplierProvider
 
 
 fun main() {
     // Dehydration
-    // Создаем список оценщиков
-    val evaluators = listOf(
-        DefaultEyesEvaluator("Normal"),
-        DefaultTearsEvaluator("Yes"),
-        DefaultMucousEvaluator("Sticky"),
-        DefaultAppearanceEvaluator("Irritable")
-    )
-
-    // Создаем объект класса DehydrationLevel, передавая список оценщиков
-    val dehydrationLevel = DehydrationLevel(evaluators)
-
-    // Получаем общее количество баллов
-    val totalPoints = dehydrationLevel.getPoints()
-
-    // Выводим результат
-    println("Total points: $totalPoints") // 2
+    val dehydrationLevel = DehydrationLevel("Irritable", "Sticky", "Few", "Light sleepiness")
+    val points = dehydrationLevel.getPoints()
+    println("Total points: $points")
 
     // Electrolites
-    val electrolyte = Electrolites("Sodium", 30, CalciumSolutionProvider(), AgeBasedInjectionsProvider())
-    val info = electrolyte.getInfo()
-    println("Electrolites info:\n$info")
+    val patient = Electrolites("Sodium Chloride", 30)
+    val info = patient.getInfo()
+    println(info)
 
-    // Water
-    val waterBalance = WaterBalance(
-        weight = 70.0,
-        age = 25,
-        ageMultiplierProvider = DefaultAgeMultiplierProvider(),
-        waterIntakeCalculator = WaterIntakeConverter(),
-        waterIntakeInGlassesCalculator = WaterIntakeInGlassesConverter()
-    )
-    println("Daily Water Intake: ${waterBalance.calculateDailyWaterIntake()}")
-    println("Daily Water Intake in Glasses: ${waterBalance.calculateDailyWaterIntakeInGlasses()}")
+    // WaterBalance
+    val waterBalance = WaterBalance(75.0, 35)
+
+    val dailyWaterIntake = waterBalance.calculateDailyWaterIntake()
+    println("Рекомендуемое ежедневное потребление воды: $dailyWaterIntake мл")
+
+    val dailyWaterIntakeInGlasses = waterBalance.calculateDailyWaterIntakeInGlasses()
+    println("Рекомендуемое ежедневное потребление воды в стаканах: $dailyWaterIntakeInGlasses")
 
     // Dehydration Treatment
-    val dehydrationTreatment = DehydrationTreatment(
-        degreeOfDehydrationMultiplier = DegreeOfDehydrationMultiplier(),
-        waterIntakeConverter = WaterIntakeConverter(),
-        waterIntakeInGlassesCalculator = WaterIntakeInGlassesConverter()
-    )
+    val dehydrationTreatment = DehydrationTreatment()
 
-    println("Dehydration Treatment Water Intake: ${dehydrationTreatment.calculateWaterIntake(65.3, 2)}")
-    println("Dehydration Treatment Water Intake in Glasses: ${dehydrationTreatment.calculateWaterIntakeInGlasses(65.3, 2)}")
+    val weight = 75.0 // Вес человека в килограммах
+    val degreeOfDehydration = 2 // Степень обезвоживания от 1 до 3
+
+    val waterIntake = dehydrationTreatment.calculateWaterIntake(weight, degreeOfDehydration)
+    println("Необходимый объем воды для восстановления водного баланса: ${waterIntake} л")
+
+    val waterIntakeInGlasses = dehydrationTreatment.calculateWaterIntakeInGlasses(weight, degreeOfDehydration)
+    println("Необходимое количество стаканов воды для восстановления водного баланса: ${waterIntakeInGlasses}")
+
 }
