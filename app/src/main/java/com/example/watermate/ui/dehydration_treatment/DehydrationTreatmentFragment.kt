@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.watermate.R
 import com.example.watermate.databinding.FragmentDehydrationTreatmentBinding
 import com.example.watermate.models.DehydrationTreatment
