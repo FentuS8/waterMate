@@ -6,6 +6,7 @@ import android.view.View
 import android.os.Bundle
 import android.widget.ListView
 import android.widget.Button
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.watermate.custom_utils.CustomArrayAdapter
 
 @Suppress("DEPRECATION")
@@ -13,6 +14,7 @@ class WelcomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(R.layout.activity_welcome_screen)
 
         val abilitiesArray = resources.getStringArray(R.array.possibilities_list)
