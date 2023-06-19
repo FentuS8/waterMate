@@ -3,7 +3,6 @@ package com.example.watermate
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.Window
 import android.widget.ImageView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -20,19 +19,13 @@ class FunctionalActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(0, 0)
 
-        window.requestFeature(Window.FEATURE_NO_TITLE)
-
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-
-        supportActionBar?.hide()
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
         binding = ActivityFunctionalBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.hide()
 
         val navView: BottomNavigationView = binding.navView
 
@@ -48,8 +41,20 @@ class FunctionalActivity : AppCompatActivity() {
 
         val button = findViewById<ImageView>(R.id.information)
         button.setOnClickListener {
-            val intent = Intent(this, Info::class.java)
+            val intent = Intent(this, InfoActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                        View.SYSTEM_UI_FLAG_FULLSCREEN or
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        )
     }
 }

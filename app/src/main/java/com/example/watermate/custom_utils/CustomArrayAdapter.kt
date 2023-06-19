@@ -51,7 +51,6 @@ class CustomArrayAdapter(context: Context, resource: Int, objects: Array<String>
         } else {
             textView.setTypeface(null, Typeface.NORMAL)
         }
-
         return view
     }
 }

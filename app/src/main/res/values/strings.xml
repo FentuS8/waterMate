@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WaterMate</string>
+    <string name="app_name">Water Mate</string>
     <string name="title">Water Mate</string>
     <string name="welcome">Welcome!</string>
     <string name="handshake">Handshake</string>
@@ -38,11 +38,11 @@
     </string-array>
 
     <string name="title_activity_functional">FunctionalActivity</string>
-    <string name="title_info">Info</string>
     <string name="title_dehydration">Dehydration</string>
     <string name="title_electrolites">Electrolites</string>
     <string name="title_water">Water</string>
-    <string name="title_dehydrationTreatment">Dehydration Treatment</string>
+    <string name="title_dehydrationTreatment">Dehydration Tx</string>
+    <string name="title_info">Info</string>
 
     <string-array name="labels_appearance">
         <item>Normal</item>
