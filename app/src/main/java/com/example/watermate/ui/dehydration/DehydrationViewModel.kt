@@ -10,4 +10,8 @@ class DehydrationViewModel : ViewModel() {
         value = "This is dehydration Fragment"
     }
     val text: LiveData<String> = _text
+
+    fun calculateDehydration(appearanceValue: Int, eyesValue: Int, mucousValue: Int, tearsValue: Int) {
+
+    }
 }
