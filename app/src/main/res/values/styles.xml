@@ -14,8 +14,4 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/textBlack</item>
     </style>
-    <style name="Theme.WaterMate.NoWindowAnimation">
-        <item name="android:windowAnimationStyle">@null</item>
-    </style>
-
 </resources>

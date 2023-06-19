@@ -13,7 +13,7 @@ import com.example.watermate.R
 
 class CustomSeekbar : AppCompatSeekBar {
     private val paint = Paint()
-    private var dotColor = Color.argb(200,79,79,79)
+    private var dotColor = Color.argb(220,79,79,79)
     private var textColor = Color.argb(200,30,30,30)
     private var maxValue = 2
     private var values = arrayOf(0, 1, 2)

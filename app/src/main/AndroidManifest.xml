@@ -14,7 +14,6 @@
 
         <activity
             android:name=".WelcomeScreen"
-            android:theme="@style/Theme.WaterMate.NoWindowAnimation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +23,10 @@
         </activity>
         <activity
             android:name=".FunctionalActivity"
-            android:theme="@style/Theme.WaterMate.NoWindowAnimation"
             android:exported="true"
             android:label="@string/title_activity_functional"/>
         <activity
             android:name=".InfoActivity"
-            android:theme="@style/Theme.WaterMate.NoWindowAnimation"
             android:exported="true"
             android:label="@string/title_info"/>
     </application>
