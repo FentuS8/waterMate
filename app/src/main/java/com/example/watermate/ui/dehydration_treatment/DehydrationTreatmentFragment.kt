@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.watermate.R
 import com.example.watermate.databinding.FragmentDehydrationTreatmentBinding
+import com.example.watermate.models.DehydrationTreatment
+import com.example.watermate.ui.dehydration.DehydrationViewModel
 
 class DehydrationTreatmentFragment : Fragment() {
 
@@ -120,7 +122,20 @@ class DehydrationTreatmentFragment : Fragment() {
         val calculateDehydrationTreatment = binding.dehydrationTreatmentCalculate
         val backDehydrationTreatment = binding.dehydrationTreatmentBack
 
+        val viewModel = ViewModelProvider(this).get(DehydrationTreatmentViewModel::class.java)
+
         calculateDehydrationTreatment.setOnClickListener {
+            val selectedDegree = when (radioGroup.checkedRadioButtonId) {
+                R.id.radioButtonFirst -> 1
+                R.id.radioButtonSecond -> 2
+                R.id.radioButtonThird -> 3
+                else -> 0 // значение по умолчанию
+            }
+            val selectedAge = ageEditText.text.toString().toIntOrNull() ?: 0
+            val selectedWeight = weightEditText.text.toString().toIntOrNull() ?: 0
+
+            val resultStr = viewModel.calculateDehydrationTreatment(selectedDegree, selectedAge, selectedWeight)
+            binding.dehydrationTreatmentResultCard.text = resultStr
             dehydrationTreatmentMain.visibility = View.GONE
             dehydrationTreatmentResult.visibility = View.VISIBLE
         }

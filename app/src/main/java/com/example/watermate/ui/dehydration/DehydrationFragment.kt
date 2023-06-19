@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.watermate.R
 import com.example.watermate.databinding.FragmentDehydrationBinding
 
@@ -41,7 +42,16 @@ class DehydrationFragment : Fragment() {
         val calculateDehydration = binding.dehydrationCalculate
         val backDehydration = binding.dehydrationBack
 
+
+        val viewModel = ViewModelProvider(this).get(DehydrationViewModel::class.java)
+
         calculateDehydration.setOnClickListener {
+            val appearanceValue = seekbarAppearance.progress
+            val eyesValue = seekbarEyes.progress
+            val mucousValue = seekbarMucous.progress
+            val tearsValue = seekbarTears.progress
+            val resultStr = viewModel.calculateDehydration(appearanceValue, eyesValue, mucousValue, tearsValue)
+            binding.dehydrationResultCard.text = resultStr
             dehydrationMain.visibility = View.GONE
             dehydrationResult.visibility = View.VISIBLE
         }
