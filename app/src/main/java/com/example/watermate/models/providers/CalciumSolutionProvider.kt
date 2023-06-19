@@ -1,6 +1,6 @@
-package com.example.watermate.utils.providers
+package com.example.watermate.models.providers
 
-import com.example.watermate.utils.interfaces.ISolutionProvider
+import com.example.watermate.models.interfaces.ISolutionProvider
 
 // Конкретный класс для поставщика раствора кальция
 class CalciumSolutionProvider : ISolutionProvider {

@@ -1,4 +1,4 @@
-package com.example.watermate.utils.interfaces
+package com.example.watermate.models.interfaces
 
 // Интерфейс для расчета необходимого количества стаканов воды по объему воды и объему стакана
 interface IWaterIntakeInGlassesCalculator {

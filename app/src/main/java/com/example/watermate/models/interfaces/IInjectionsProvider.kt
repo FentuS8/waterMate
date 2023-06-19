@@ -1,4 +1,4 @@
-package com.example.watermate.utils.interfaces
+package com.example.watermate.models.interfaces
 
 // Интерфейс для поставщика инъекций
 interface IInjectionsProvider {

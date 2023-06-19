@@ -1,7 +1,7 @@
 package com.example.watermate.models
 
-import com.example.watermate.utils.interfaces.IInjectionsProvider
-import com.example.watermate.utils.interfaces.ISolutionProvider
+import com.example.watermate.models.interfaces.IInjectionsProvider
+import com.example.watermate.models.interfaces.ISolutionProvider
 
 
 // Абстрактный класс для электролитов

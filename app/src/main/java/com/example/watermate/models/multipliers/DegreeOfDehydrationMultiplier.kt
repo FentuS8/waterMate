@@ -1,6 +1,6 @@
-package com.example.watermate.utils.multipliers
+package com.example.watermate.models.multipliers
 
-import com.example.watermate.utils.interfaces.IDegreeOfDehydrationMultiplier
+import com.example.watermate.models.interfaces.IDegreeOfDehydrationMultiplier
 
 // Класс для получения множителя по степени обезвоживания
 class DegreeOfDehydrationMultiplier : IDegreeOfDehydrationMultiplier {

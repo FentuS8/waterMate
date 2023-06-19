@@ -1,6 +1,6 @@
-package com.example.watermate.utils.evaluators
+package com.example.watermate.models.evaluators
 
-import com.example.watermate.utils.interfaces.IEvaluator
+import com.example.watermate.models.interfaces.IEvaluator
 
 // Класс для оценки по состоянию глаз
 class DefaultEyesEvaluator(private val eyes: String) : IEvaluator {

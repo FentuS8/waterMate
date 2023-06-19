@@ -1,6 +1,6 @@
-package com.example.watermate.utils.converters
+package com.example.watermate.models.converters
 
-import com.example.watermate.utils.interfaces.IWaterIntakeConverter
+import com.example.watermate.models.interfaces.IWaterIntakeConverter
 
 // Конкретная реализация интерфейса IWaterIntakeCalculator по умолчанию
 class DefaultWaterIntakeConverter : IWaterIntakeConverter {

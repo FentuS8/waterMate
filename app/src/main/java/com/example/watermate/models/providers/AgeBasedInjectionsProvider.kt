@@ -1,5 +1,5 @@
-package com.example.watermate.utils.providers
-import com.example.watermate.utils.interfaces.IInjectionsProvider
+package com.example.watermate.models.providers
+import com.example.watermate.models.interfaces.IInjectionsProvider
 
 // Конкретный класс для поставщика инъекций по возрасту
 class AgeBasedInjectionsProvider : IInjectionsProvider {

@@ -4,16 +4,16 @@ import com.example.watermate.models.DehydrationLevel
 import com.example.watermate.models.DehydrationTreatment
 import com.example.watermate.models.Electrolites
 import com.example.watermate.models.WaterBalance
-import com.example.watermate.utils.converters.WaterIntakeConverter
-import com.example.watermate.utils.converters.WaterIntakeInGlassesConverter
-import com.example.watermate.utils.evaluators.DefaultAppearanceEvaluator
-import com.example.watermate.utils.evaluators.DefaultEyesEvaluator
-import com.example.watermate.utils.evaluators.DefaultMucousEvaluator
-import com.example.watermate.utils.evaluators.DefaultTearsEvaluator
-import com.example.watermate.utils.multipliers.DegreeOfDehydrationMultiplier
-import com.example.watermate.utils.providers.AgeBasedInjectionsProvider
-import com.example.watermate.utils.providers.CalciumSolutionProvider
-import com.example.watermate.utils.providers.DefaultAgeMultiplierProvider
+import com.example.watermate.models.converters.WaterIntakeConverter
+import com.example.watermate.models.converters.WaterIntakeInGlassesConverter
+import com.example.watermate.models.evaluators.DefaultAppearanceEvaluator
+import com.example.watermate.models.evaluators.DefaultEyesEvaluator
+import com.example.watermate.models.evaluators.DefaultMucousEvaluator
+import com.example.watermate.models.evaluators.DefaultTearsEvaluator
+import com.example.watermate.models.multipliers.DegreeOfDehydrationMultiplier
+import com.example.watermate.models.providers.AgeBasedInjectionsProvider
+import com.example.watermate.models.providers.CalciumSolutionProvider
+import com.example.watermate.models.providers.DefaultAgeMultiplierProvider
 
 
 fun main() {

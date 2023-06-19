@@ -1,6 +1,6 @@
-package com.example.watermate.utils.providers
+package com.example.watermate.models.providers
 
-import com.example.watermate.utils.interfaces.IAgeMultiplierProvider
+import com.example.watermate.models.interfaces.IAgeMultiplierProvider
 
 // Конкретная реализация интерфейса IAgeMultiplierProvider по умолчанию
 class DefaultAgeMultiplierProvider : IAgeMultiplierProvider {

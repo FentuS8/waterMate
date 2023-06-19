@@ -1,6 +1,6 @@
-package com.example.watermate.utils.converters
+package com.example.watermate.models.converters
 
-import com.example.watermate.utils.interfaces.IWaterIntakeInGlassesConverter
+import com.example.watermate.models.interfaces.IWaterIntakeInGlassesConverter
 
 // Класс для расчета количества стаканов воды по объему воды и объему стакана
 class WaterIntakeInGlassesConverter : IWaterIntakeInGlassesConverter {

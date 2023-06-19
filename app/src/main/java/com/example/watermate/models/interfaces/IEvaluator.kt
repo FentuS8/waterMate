@@ -1,4 +1,4 @@
-package com.example.watermate.utils.interfaces
+package com.example.watermate.models.interfaces
 
 // Интерфейс для оценки уровня обезвоживания по разным параметрам
 interface IEvaluator {

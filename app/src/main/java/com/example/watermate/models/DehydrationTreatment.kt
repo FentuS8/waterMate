@@ -1,8 +1,8 @@
 package com.example.watermate.models
 
-import com.example.watermate.utils.interfaces.IDegreeOfDehydrationMultiplier
-import com.example.watermate.utils.interfaces.IWaterIntakeConverter
-import com.example.watermate.utils.interfaces.IWaterIntakeInGlassesConverter
+import com.example.watermate.models.interfaces.IDegreeOfDehydrationMultiplier
+import com.example.watermate.models.interfaces.IWaterIntakeConverter
+import com.example.watermate.models.interfaces.IWaterIntakeInGlassesConverter
 
 
 // Класс для лечения обезвоживания с помощью разных калькуляторов

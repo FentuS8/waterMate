@@ -1,6 +1,6 @@
 package com.example.watermate.models
 
-import com.example.watermate.utils.interfaces.IEvaluator
+import com.example.watermate.models.interfaces.IEvaluator
 
 // Класс для вычисления общего количества баллов по всем оценщикам
 class DehydrationLevel(private val evaluators: List<IEvaluator>) {
