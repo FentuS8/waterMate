@@ -50,7 +50,8 @@ class DehydrationFragment : Fragment() {
             val eyesValue = seekbarEyes.progress
             val mucousValue = seekbarMucous.progress
             val tearsValue = seekbarTears.progress
-            viewModel.calculateDehydration(appearanceValue, eyesValue, mucousValue, tearsValue)
+            val resultStr = viewModel.calculateDehydration(appearanceValue, eyesValue, mucousValue, tearsValue)
+            binding.dehydrationResultCard.text = resultStr
             dehydrationMain.visibility = View.GONE
             dehydrationResult.visibility = View.VISIBLE
         }
