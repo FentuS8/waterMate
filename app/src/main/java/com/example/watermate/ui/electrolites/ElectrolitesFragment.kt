@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.watermate.R
 import com.example.watermate.databinding.FragmentElectrolitesBinding
+import com.example.watermate.ui.dehydration_treatment.DehydrationTreatmentViewModel
 
 class ElectrolitesFragment : Fragment() {
 
@@ -87,7 +88,20 @@ class ElectrolitesFragment : Fragment() {
         val calculateElectrolites = binding.electrolitesCalculate
         val backElectrolites = binding.electrolitesBack
 
+        val viewModel = ViewModelProvider(this).get(ElectrolitesViewModel::class.java)
+
         calculateElectrolites.setOnClickListener {
+            val selectedElement = when (radioGroup.checkedRadioButtonId) {
+                R.id.radioButtonCalcium -> "Calcium"
+                R.id.radioButtonPotassium -> "Potassium"
+                R.id.radioButtonMagnesium -> "Magnesium"
+                else -> ""
+            }
+            val selectedAge = ageEditText.text.toString().toIntOrNull() ?: 0
+
+            val resultStr = viewModel.calculateElectrolites(selectedElement, selectedAge)
+            binding.electrolitesResultCard.text = resultStr
+
             electrolitesMain.visibility = View.GONE
             electrolitesResult.visibility = View.VISIBLE
         }

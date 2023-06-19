@@ -12,6 +12,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.watermate.databinding.FragmentWaterBinding
+import com.example.watermate.ui.electrolites.ElectrolitesViewModel
 
 class WaterFragment : Fragment() {
 
@@ -106,7 +107,11 @@ class WaterFragment : Fragment() {
         val calculateWater = binding.waterCalculate
         val backWater = binding.waterBack
 
+        val viewModel = ViewModelProvider(this).get(WaterViewModel::class.java)
+
         calculateWater.setOnClickListener {
+            val resultStr = viewModel.calculateWaterBalance(age, weight)
+            binding.waterResultCard.text = resultStr
             waterMain.visibility = View.GONE
             waterResult.visibility = View.VISIBLE
         }
