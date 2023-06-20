@@ -8,7 +8,7 @@ class Electrolites(private val element: String, private val age: Int) {
     fun getInfo(): String {
         val solution = getSolution(element) // Получаем раствор по элементу
         val injections = getInjections(age) // Получаем количество инъекций по возрасту
-        return "We administer a ten percent $solution, in $injections " // Возвращаем информацию в виде строки
+        return "Use a ten percent $solution in $injections ml.\nNo more than 10 ml per day" // Возвращаем информацию в виде строки
     }
 
     /**
@@ -27,7 +27,7 @@ class Electrolites(private val element: String, private val age: Int) {
      * @return строка с количеством инъекций
      */
     private fun getInjections(age: Int): String {
-        // Возвращаем количество инъекций, соответствующее переданному возрасту
-        return "$age injections"
+        val doses = age / 2
+        return "$doses"
     }
 }

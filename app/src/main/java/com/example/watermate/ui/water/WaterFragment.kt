@@ -71,7 +71,6 @@ class WaterFragment : Fragment() {
         }
 
         ageEditText.addTextChangedListener(object : TextWatcher {
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
@@ -86,7 +85,6 @@ class WaterFragment : Fragment() {
         })
 
         weightEditText.addTextChangedListener(object : TextWatcher {
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
@@ -108,11 +106,17 @@ class WaterFragment : Fragment() {
         val viewModel = ViewModelProvider(this).get(WaterViewModel::class.java)
 
         calculateWater.setOnClickListener {
-            val resultStr = viewModel.calculateWaterBalance(age, weight)
-            binding.waterResultCard.text = resultStr
-            waterMain.visibility = View.GONE
-            waterResult.visibility = View.VISIBLE
+            val inputAge = ageEditText.text.toString().toIntOrNull()
+            val inputWeight = weightEditText.text.toString().toIntOrNull()
+
+            if (inputAge != null && inputWeight != null) {
+                val resultStr = viewModel.calculateWaterBalance(inputAge, inputWeight)
+                binding.waterResultCard.text = resultStr
+                waterMain.visibility = View.GONE
+                waterResult.visibility = View.VISIBLE
+            }
         }
+
 
         backWater.setOnClickListener {
             waterMain.visibility = View.VISIBLE

@@ -30,12 +30,13 @@ fun main() {
     val dehydrationTreatment = DehydrationTreatment()
 
     val weight = 75.0 // Вес человека в килограммах
+    val selectedAge = 10
     val degreeOfDehydration = 2 // Степень обезвоживания от 1 до 3
 
-    val waterIntake = dehydrationTreatment.calculateWaterIntake(weight, degreeOfDehydration)
+    val waterIntake = dehydrationTreatment.calculateWaterIntake(weight, selectedAge, degreeOfDehydration)
     println("Необходимый объем воды для восстановления водного баланса: ${waterIntake} л")
 
-    val waterIntakeInGlasses = dehydrationTreatment.calculateWaterIntakeInGlasses(weight, degreeOfDehydration)
+    val waterIntakeInGlasses = dehydrationTreatment.calculateWaterIntakeInGlasses(weight, selectedAge, degreeOfDehydration)
     println("Необходимое количество стаканов воды для восстановления водного баланса: ${waterIntakeInGlasses}")
 
 }

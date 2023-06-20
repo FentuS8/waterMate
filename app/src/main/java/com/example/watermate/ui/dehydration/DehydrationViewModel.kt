@@ -49,6 +49,13 @@ class DehydrationViewModel : ViewModel() {
 
         val points = dehydrationLevel.getPoints()
 
-        return "Количество очков: $points"
+        val message = when {
+            points == 0 -> "All is well!"
+            points == 1 -> "I degree of dehydration"
+            points <= 4 -> "II degree of dehydration"
+            else -> "III degree of dehydration"
+        }
+
+        return "Points count: $points\n$message"
     }
 }
