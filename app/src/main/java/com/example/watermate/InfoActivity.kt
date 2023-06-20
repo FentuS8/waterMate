@@ -1,6 +1,7 @@
 package com.example.watermate
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.os.Bundle
@@ -17,11 +18,13 @@ class InfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_info)
         supportActionBar?.hide()
 
+        val pop = MediaPlayer.create(this, R.raw.pop)
+
         val button = findViewById<Button>(R.id.back)
         button.setOnClickListener {
+            pop.start()
             val intent = Intent(this, FunctionalActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 

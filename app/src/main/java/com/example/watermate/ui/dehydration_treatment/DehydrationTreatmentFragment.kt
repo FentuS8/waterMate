@@ -1,6 +1,7 @@
 package com.example.watermate.ui.dehydration_treatment
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,8 +12,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.watermate.R
 import com.example.watermate.databinding.FragmentDehydrationTreatmentBinding
-import com.example.watermate.models.DehydrationTreatment
-import com.example.watermate.ui.dehydration.DehydrationViewModel
 
 class DehydrationTreatmentFragment : Fragment() {
 
@@ -124,8 +123,10 @@ class DehydrationTreatmentFragment : Fragment() {
         val backDehydrationTreatment = binding.dehydrationTreatmentBack
 
         val viewModel = ViewModelProvider(this).get(DehydrationTreatmentViewModel::class.java)
+        val pop = MediaPlayer.create(requireContext(), R.raw.pop)
 
         calculateDehydrationTreatment.setOnClickListener {
+            pop.start()
             val selectedDegree = when (radioGroup.checkedRadioButtonId) {
                 R.id.radioButtonFirst -> 1
                 R.id.radioButtonSecond -> 2
@@ -142,6 +143,7 @@ class DehydrationTreatmentFragment : Fragment() {
         }
 
         backDehydrationTreatment.setOnClickListener {
+            pop.start()
             dehydrationTreatmentMain.visibility = View.VISIBLE
             dehydrationTreatmentResult.visibility = View.GONE
         }

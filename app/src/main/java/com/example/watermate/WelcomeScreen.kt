@@ -1,6 +1,7 @@
 package com.example.watermate
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.os.Bundle
@@ -35,8 +36,10 @@ class WelcomeScreen : AppCompatActivity() {
             val adapter = CustomArrayAdapter(this, android.R.layout.simple_list_item_1, abilitiesArray)
             listView.adapter = adapter
 
+            val pop = MediaPlayer.create(this, R.raw.pop)
             val button = findViewById<Button>(R.id.start)
             button.setOnClickListener {
+                pop.start()
                 val intent = Intent(this, FunctionalActivity::class.java)
                 startActivity(intent)
 

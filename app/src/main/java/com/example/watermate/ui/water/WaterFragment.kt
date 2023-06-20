@@ -1,6 +1,7 @@
 package com.example.watermate.ui.water
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.watermate.R
 import com.example.watermate.databinding.FragmentWaterBinding
-import com.example.watermate.ui.electrolites.ElectrolitesViewModel
 
 class WaterFragment : Fragment() {
 
@@ -104,8 +105,10 @@ class WaterFragment : Fragment() {
         val backWater = binding.waterBack
 
         val viewModel = ViewModelProvider(this).get(WaterViewModel::class.java)
+        val pop = MediaPlayer.create(requireContext(), R.raw.pop)
 
         calculateWater.setOnClickListener {
+            pop.start()
             val inputAge = ageEditText.text.toString().toIntOrNull()
             val inputWeight = weightEditText.text.toString().toIntOrNull()
 
@@ -117,13 +120,11 @@ class WaterFragment : Fragment() {
             }
         }
 
-
         backWater.setOnClickListener {
+            pop.start()
             waterMain.visibility = View.VISIBLE
             waterResult.visibility = View.GONE
         }
-
-
         return root
     }
 

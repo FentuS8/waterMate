@@ -1,5 +1,6 @@
 package com.example.watermate.ui.dehydration
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,10 +43,11 @@ class DehydrationFragment : Fragment() {
         val calculateDehydration = binding.dehydrationCalculate
         val backDehydration = binding.dehydrationBack
 
-
         val viewModel = ViewModelProvider(this).get(DehydrationViewModel::class.java)
+        val pop = MediaPlayer.create(requireContext(), R.raw.pop)
 
         calculateDehydration.setOnClickListener {
+            pop.start()
             val appearanceValue = seekbarAppearance.progress
             val eyesValue = seekbarEyes.progress
             val mucousValue = seekbarMucous.progress
@@ -57,6 +59,7 @@ class DehydrationFragment : Fragment() {
         }
 
         backDehydration.setOnClickListener {
+            pop.start()
             dehydrationMain.visibility = View.VISIBLE
             dehydrationResult.visibility = View.GONE
         }

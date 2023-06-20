@@ -1,6 +1,7 @@
 package com.example.watermate.ui.electrolites
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.watermate.R
 import com.example.watermate.databinding.FragmentElectrolitesBinding
-import com.example.watermate.ui.dehydration_treatment.DehydrationTreatmentViewModel
 
 class ElectrolitesFragment : Fragment() {
 
@@ -87,8 +87,10 @@ class ElectrolitesFragment : Fragment() {
         val backElectrolites = binding.electrolitesBack
 
         val viewModel = ViewModelProvider(this).get(ElectrolitesViewModel::class.java)
+        val pop = MediaPlayer.create(requireContext(), R.raw.pop)
 
         calculateElectrolites.setOnClickListener {
+            pop.start()
             val selectedElement = when (radioGroup.checkedRadioButtonId) {
                 R.id.radioButtonCalcium -> "Calcium"
                 R.id.radioButtonPotassium -> "Potassium"
@@ -105,6 +107,7 @@ class ElectrolitesFragment : Fragment() {
         }
 
         backElectrolites.setOnClickListener {
+            pop.start()
             electrolitesMain.visibility = View.VISIBLE
             electrolitesResult.visibility = View.GONE
         }
