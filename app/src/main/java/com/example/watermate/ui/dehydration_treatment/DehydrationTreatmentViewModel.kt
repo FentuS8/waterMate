@@ -8,7 +8,7 @@ class DehydrationTreatmentViewModel : ViewModel() {
 
         val dehydrationTreatment = DehydrationTreatment()
 
-        val waterIntake = dehydrationTreatment.calculateWaterIntake(selectedWeight.toDouble(),selectedAge, selectedDegree)
+        val waterIntake = String.format("%.2f", dehydrationTreatment.calculateWaterIntake(selectedWeight.toDouble(), selectedAge, selectedDegree))
         val waterIntakeInGlasses = dehydrationTreatment.calculateWaterIntakeInGlasses(selectedWeight.toDouble(), selectedAge, selectedDegree)
 
         return "You should drink $waterIntake Liters \n($waterIntakeInGlasses glasses) of water per day"

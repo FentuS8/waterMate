@@ -7,10 +7,10 @@ class WaterViewModel : ViewModel() {
     fun calculateWaterBalance(age: Int, weight: Int): String {
         val waterBalance = WaterBalance(weight.toDouble(), age)
 
-        val dailyWaterIntake = waterBalance.calculateDailyWaterIntake()
+        val dailyWaterIntake = waterBalance.calculateDailyWaterIntake() / 1000
         val dailyWaterIntakeInGlasses = waterBalance.calculateDailyWaterIntakeInGlasses()
 
-        return "You should drink $dailyWaterIntake ($dailyWaterIntakeInGlasses glasses) of water per day"
+        return "You should drink $dailyWaterIntake Liters\n($dailyWaterIntakeInGlasses glasses) of water per day"
     }
 
 }
