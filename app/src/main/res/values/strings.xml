@@ -1,14 +1,33 @@
 <resources>
-    <string name="app_name">WaterMate</string>
+    <string name="app_name">Water Mate</string>
     <string name="title">Water Mate</string>
     <string name="welcome">Welcome!</string>
     <string name="handshake">Handshake</string>
     <string name="start">Let\'s start!</string>
-    <string name="labelDehydration">Dehydration</string>
+    <string name="calculate">Calculate</string>
+    <string name="back">Back</string>
+    <string name="labelDehydrationTreatment">Dehydration Treatment</string>
     <string name="appearance">Appearance</string>
     <string name="eyes">Eyes</string>
     <string name="mucous">Mucous</string>
     <string name="tears">Tears</string>
+    <string name="selectElement">Select a chemical element:</string>
+    <string name="selectDegree">Select the degree of dehydration:</string>
+    <string name="ageInput">Input your age:</string>
+    <string name="weightInput">Your weight (kg):</string>
+    <string name="choiceCalcium">Calcium</string>
+    <string name="choicePotassium">Potassium</string>
+    <string name="choiceMagnesium">Magnesium</string>
+    <string name="choiceFirst">I (5%)</string>
+    <string name="choiceSecond">II (6–9%)</string>
+    <string name="choiceThird">III (10%)</string>
+    <string name="info">Info button</string>
+    <string name="developers">Developers:</string>
+    <string name="fentus">Gromov Nikita Andreevich</string>
+    <string name="KinitoSs">Arharov Nikita Mikhailovich</string>
+    <string name="group">Group 351018</string>
+
+    <string name="outputDehydration">U are still alive!</string>
 
     <string-array name="possibilities_list">
         <item>With this application you will \nbe able to:</item>
@@ -16,5 +35,33 @@
         <item>determine the required amount \nof electrolytes</item>
         <item>determine the daily physiological \nneed for fluids</item>
         <item>calculate the required amount \nof fluid in case of dehydration</item>
+    </string-array>
+
+    <string name="title_activity_functional">FunctionalActivity</string>
+    <string name="title_dehydration">Dehydration</string>
+    <string name="title_electrolites">Electrolites</string>
+    <string name="title_water">Water</string>
+    <string name="title_dehydrationTreatment">Dehydration Tx</string>
+    <string name="title_info">Info</string>
+
+    <string-array name="labels_appearance">
+        <item>Normal</item>
+        <item>Irritable</item>
+        <item>Sluggish</item>
+    </string-array>
+    <string-array name="labels_eyes">
+        <item>Normal</item>
+        <item>Light sleepiness</item>
+        <item>Drowsy</item>
+    </string-array>
+    <string-array name="labels_mucous">
+        <item>Wet</item>
+        <item>Sticky</item>
+        <item>Dry</item>
+    </string-array>
+    <string-array name="labels_tears">
+        <item>Yes</item>
+        <item>Few</item>
+        <item>No</item>
     </string-array>
 </resources>

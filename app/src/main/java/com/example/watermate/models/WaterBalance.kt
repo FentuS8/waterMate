@@ -1,39 +1,24 @@
 package com.example.watermate.models
 
-class WaterBalance(private val age: Int, private val weight: Double) {
-    fun calculateDailyWaterIntake(): Double {
-        // Формула для вычисления дневной нормы потребления воды
-        val waterIntake = weight * getMultiplierByAge()
 
-        return waterIntake
+class WaterBalance(private val weight: Double, private val age: Int) {
+    fun calculateDailyWaterIntake(): Double {
+        val multiplier = when {
+            age < 1 -> 80.0
+            age in 1..10 -> (age + 40).toDouble()
+            else -> when {
+                age < 14 -> 40.0
+                age < 30 -> 35.0
+                age < 55 -> 30.0
+                else -> 25.0
+            }
+        }
+        return weight * multiplier
     }
 
     fun calculateDailyWaterIntakeInGlasses(): Int {
         val waterIntake = calculateDailyWaterIntake()
-        val glassVolume = 250 // Предположим, что объем одного стакана равен 250 мл
-        val waterIntakeInGlasses = (waterIntake / glassVolume).toInt()
-
-        return waterIntakeInGlasses
-    }
-
-    private fun getMultiplierByAge(): Double {
-        return when {
-            age < 14 -> 40.0 // Если возраст меньше 14 лет, множитель равен 40
-            age < 30 -> 35.0 // Если возраст меньше 30 лет, множитель равен 35
-            age < 55 -> 30.0 // Если возраст меньше 55 лет, множитель равен 30
-            else -> 25.0 // В остальных случаях множитель равен 25
-        }
+        val glassVolume = 250
+        return (waterIntake / glassVolume).toInt()
     }
 }
-
-//val userAge = 25
-//val userWeight = 70.5
-//
-//val waterBalance = WaterBalance(userAge, userWeight)
-//
-//val dailyWaterIntake = waterBalance.calculateDailyWaterIntake()
-//val dailyWaterIntakeInGlasses = waterBalance.calculateDailyWaterIntakeInGlasses()
-//
-//println("Пользователь должен пить $dailyWaterIntake литров воды в день.")
-//println("Это примерно $dailyWaterIntakeInGlasses стаканов воды в день.")
-

@@ -1,35 +1,33 @@
 package com.example.watermate.models
 
 class Electrolites(private val element: String, private val age: Int) {
-
+    /**
+     * Метод для получения информации об электролитах
+     * @return строка с информацией об электролитах
+     */
     fun getInfo(): String {
-        val solution = getSolution()
-        val injections = getInjections()
-        return "We administer a ten percent solution of\n\n$solution,\n\nin $injections injections"
+        val solution = getSolution(element) // Получаем раствор по элементу
+        val injections = getInjections(age) // Получаем количество инъекций по возрасту
+        return "Use a ten percent $solution in $injections ml.\nNo more than 10 ml per day" // Возвращаем информацию в виде строки
     }
 
-    private fun getSolution(): String {
-        val calciumChloride = when (element) {
-            "Calcium" -> "0.5 ml/day (calcium chloride)"
-            else -> ""
-        }
-        val calciumGluconate = when (element) {
-            "Calcium" -> "1.0 ml/day (calcium gluconate)"
-            else -> ""
-        }
-        return "$calciumChloride - $calciumGluconate"
+    /**
+     * Метод для возвращения раствора по элементу
+     * @param element - название элемента
+     * @return строка с раствором
+     */
+    private fun getSolution(element: String): String {
+        // Возвращаем раствор, соответствующий переданному элементу
+        return "solution for $element"
     }
 
-    private fun getInjections(): String {
-        val injections = when (age) {
-            in 1..2 -> "1-2"
-            else -> "1-10"
-        }
-        return injections
+    /**
+     * Метод для возвращения количества инъекций по возрасту
+     * @param age - возраст в годах
+     * @return строка с количеством инъекций
+     */
+    private fun getInjections(age: Int): String {
+        val doses = age / 2
+        return "$doses"
     }
 }
-
-//fun main() {
-//    val electrolites = Electrolites("Calcium", 1)
-//    println(electrolites.getInfo())
-//}

@@ -1,53 +1,67 @@
 package com.example.watermate.models
 
-class DehydrationLevel {
-    var appearance: String = ""
-    var eyes: String = ""
-    var mucous: String = ""
-    var tears: String = ""
-
+class DehydrationLevel(
+    private val appearance: String,
+    private val mucous: String,
+    private val tears: String,
+    private val eyes: String
+) {
+    /**
+     * Метод для вычисления общего количества баллов по всем оценщикам
+     * @return сумма баллов всех оценщиков
+     */
     fun getPoints(): Int {
-        var points = 0
+        return evaluateAppearance() +
+                evaluateMucous() +
+                evaluateTears() +
+                evaluateEyes()
+    }
 
-        // Checking Appearance
-        when (appearance) {
-            "Normal" -> points += 0
-            "Irritable" -> points += 1
-            "Sluggish" -> points += 2
+    /**
+     * Метод для оценки по внешнему виду
+     */
+    private fun evaluateAppearance(): Int {
+        return when (appearance) {
+            "Normal" -> 0
+            "Irritable" -> 1
+            "Sluggish" -> 2
+            else -> 0
         }
+    }
 
-        // Checking Eyes
-        when (eyes) {
-            "Normal" -> points += 0
-            "Light sleepiness" -> points += 1
-            "Drowsy" -> points += 2
+    /**
+     * Метод для оценки по состоянию слизистой оболочки рта
+     */
+    private fun evaluateMucous(): Int {
+        return when (mucous) {
+            "Wet" -> 0
+            "Sticky" -> 1
+            "Dry" -> 2
+            else -> 0
         }
-        // 123
-        // Checking Mucous
-        when (mucous) {
-            "Wet" -> points += 0
-            "Sticky" -> points += 1
-            "Dry" -> points += 2
-        }
+    }
 
-        // Checking Tears
-        when (tears) {
-            "Yes" -> points += 0
-            "Few" -> points += 1
-            "No" -> points += 2
+    /**
+     * Метод для оценки по наличию слез при плаче
+     */
+    private fun evaluateTears(): Int {
+        return when (tears) {
+            "Yes" -> 0
+            "Few" -> 1
+            "No" -> 2
+            else -> 0
         }
+    }
 
-        return points
+    /**
+     * Метод для оценки по состоянию глаз
+     */
+    private fun evaluateEyes(): Int {
+        return when (eyes) {
+            "Normal" -> 0
+            "Light sleepiness" -> 1
+            "Drowsy" -> 2
+            else -> 0
+        }
     }
 }
-
-//fun main() {
-//    val dehydrationLevel = DehydrationLevel()
-//    dehydrationLevel.appearance = "Irritable"
-//    dehydrationLevel.eyes = "Drowsy"
-//    dehydrationLevel.mucous = "Dry"
-//    dehydrationLevel.tears = "Few"
-//
-//    val points = dehydrationLevel.getPoints()
-//    println("Dehydration Level: $points")
-//}
