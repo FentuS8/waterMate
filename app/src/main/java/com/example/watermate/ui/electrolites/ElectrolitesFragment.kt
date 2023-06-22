@@ -29,15 +29,9 @@ class ElectrolitesFragment : Fragment() {
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.radioButtonCalcium -> {
-                    // Выбран пункт 1
-                }
-                R.id.radioButtonPotassium -> {
-                    // Выбран пункт 2
-                }
-                R.id.radioButtonMagnesium -> {
-                    // Выбран пункт 3
-                }
+                R.id.radioButtonCalcium -> { }
+                R.id.radioButtonPotassium -> { }
+                R.id.radioButtonMagnesium -> { }
             }
         }
 
