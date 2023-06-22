@@ -1,6 +1,5 @@
 package com.example.watermate.models
 
-
 class WaterBalance(private val weight: Double, private val age: Int) {
     fun calculateDailyWaterIntake(): Double {
         val multiplier = when {

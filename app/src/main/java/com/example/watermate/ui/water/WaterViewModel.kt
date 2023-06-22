@@ -12,5 +12,4 @@ class WaterViewModel : ViewModel() {
 
         return "You should drink $dailyWaterIntake Liters\n($dailyWaterIntakeInGlasses glasses) of water per day"
     }
-
 }

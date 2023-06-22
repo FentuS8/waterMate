@@ -1,16 +1,9 @@
 package com.example.watermate.ui.dehydration
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.watermate.models.DehydrationLevel
 
 class DehydrationViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dehydration Fragment"
-    }
-    val text: LiveData<String> = _text
 
     fun calculateDehydration(appearanceValue: Int, eyesValue: Int, mucousValue: Int, tearsValue: Int): String {
         val eyesEvaluator: String
@@ -50,12 +43,11 @@ class DehydrationViewModel : ViewModel() {
         val points = dehydrationLevel.getPoints()
 
         val message = when {
-            points == 0 -> "All is well!"
+            points == 0 -> "You're doing great!"
             points == 1 -> "I degree of dehydration"
             points <= 4 -> "II degree of dehydration"
             else -> "III degree of dehydration"
         }
-
         return "Points count: $points\n$message"
     }
 }
